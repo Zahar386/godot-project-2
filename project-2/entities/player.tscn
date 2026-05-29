@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dppkr4e8smqfd"]
+
+[ext_resource type="Script" uid="uid://clmgb8ucajsmq" path="res://entities/player.gd" id="1_b0kkn"]
+[ext_resource type="Texture2D" uid="uid://cdx74i82lwofg" path="res://assets/space_ship.png" id="1_merdl"]
+
+[node name="Player" type="CharacterBody2D" unique_id=699583065]
+motion_mode = 1
+script = ExtResource("1_b0kkn")
+metadata/_edit_group_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=656980989]
+polygon = PackedVector2Array(-15, 11, -3, 7, -3, 13, 3, 13, 3, 7, 15, 11, 15, 5, 5, -6, 0, -13, -5, -6, -15, 5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=119014150]
+texture_filter = 3
+texture = ExtResource("1_merdl")
+
+[node name="Timer" type="Timer" parent="." unique_id=864885964]
