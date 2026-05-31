@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://cuvyho40b6qfv"]
 
+[ext_resource type="Script" uid="uid://dkdoyhxfcf6fb" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://drnslwr1gira5" path="res://assets/Space_Stars2.png" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://7d786cnajx6j" path="res://entities/enemy.tscn" id="3_h2yge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(16, 256)
 
 [node name="Main" type="Node2D" unique_id=972571192]
+script = ExtResource("1_1bvp3")
 
 [node name="Background" type="Sprite2D" parent="." unique_id=1781844975]
 texture_filter = 3
@@ -17,26 +20,24 @@ region_enabled = true
 region_rect = Rect2(0, 0, 256, 256)
 
 [node name="Player" parent="." unique_id=699583065 instance=ExtResource("2_0xm2m")]
-position = Vector2(128, 216)
+position = Vector2(128, 240)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1756923132]
 position = Vector2(-8, 8)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1051873091]
-position = Vector2(0, 120)
+position = Vector2(8, 120)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=137529466]
-position = Vector2(272, 120)
+position = Vector2(264, 120)
 shape = SubResource("RectangleShape2D_0xm2m")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=309155128]
-position = Vector2(136, -16.000006)
-rotation = 1.5707964
-shape = SubResource("RectangleShape2D_0xm2m")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls" unique_id=683028948]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls" unique_id=683028948]
 position = Vector2(135.99998, 256)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Enemy" parent="." unique_id=784021926 instance=ExtResource("3_h2yge")]
+position = Vector2(216, 24)

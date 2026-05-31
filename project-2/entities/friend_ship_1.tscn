@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cginallphnnxx"]
 
-[ext_resource type="Script" uid="uid://xnsbqi15byp0" path="res://friend_ship_1.gd" id="1_a2hdi"]
-[ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/godot-invader-small.png" id="2_gg502"]
+[ext_resource type="Script" uid="uid://xnsbqi15byp0" path="res://entities/friend_ship_1.gd" id="1_a2hdi"]
+[ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="2_gg502"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sjtsc"]
 atlas = ExtResource("2_gg502")
@@ -40,3 +40,8 @@ animation = &"shoot"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389308610]
 shape = SubResource("RectangleShape2D_gbily")
+
+[node name="Timer" type="Timer" parent="." unique_id=918810731]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://7d786cnajx6j"]
+
+[ext_resource type="Script" uid="uid://dpkq4v7k1yekf" path="res://entities/enemy.gd" id="1_pqhw6"]
+[ext_resource type="Texture2D" uid="uid://bcii7njiyy30b" path="res://assets/Enemy_ship.png" id="2_b4nis"]
+
+[node name="Enemy" type="CharacterBody2D" unique_id=784021926]
+script = ExtResource("1_pqhw6")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1185803421]
+position = Vector2(1.9073486e-06, 1.9073486e-06)
+scale = Vector2(0.098461516, 0.098461516)
+texture = ExtResource("2_b4nis")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1581689609]
+polygon = PackedVector2Array(26, 14, 12, 19, -12, 19, -26, 14, -26, -1, -16, -19, 16, -19, 26, -1)
+
+[node name="Health" type="ProgressBar" parent="." unique_id=1279504183]
+self_modulate = Color(18.892157, 0, 0, 1)
+offset_left = -31.0
+offset_top = -19.0
+offset_right = -27.0
+offset_bottom = 19.0
+max_value = 50.0
+value = 50.0
+fill_mode = 3
+show_percentage = false

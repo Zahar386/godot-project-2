@@ -6,7 +6,6 @@
 [node name="Player" type="CharacterBody2D" unique_id=699583065]
 motion_mode = 1
 script = ExtResource("1_b0kkn")
-metadata/_edit_group_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=656980989]
 polygon = PackedVector2Array(-15, 11, -3, 7, -3, 13, 3, 13, 3, 7, 15, 11, 15, 5, 5, -6, 0, -13, -5, -6, -15, 5)
@@ -16,3 +15,26 @@ texture_filter = 3
 texture = ExtResource("1_merdl")
 
 [node name="Timer" type="Timer" parent="." unique_id=864885964]
+wait_time = 3.0
+autostart = true
+
+[node name="Wait_for_creating" type="ProgressBar" parent="." unique_id=572096258]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+offset_left = 15.0
+offset_top = -13.0
+offset_right = 19.0
+offset_bottom = 13.0
+max_value = 3.0
+fill_mode = 3
+show_percentage = false
+
+[node name="Health" type="ProgressBar" parent="." unique_id=799246441]
+self_modulate = Color(18.892157, 0, 0, 1)
+offset_left = -19.0
+offset_top = -13.0
+offset_right = -15.0
+offset_bottom = 13.0
+fill_mode = 3
+show_percentage = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
