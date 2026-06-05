@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://cginallphnnxx"]
+
+[ext_resource type="Script" uid="uid://xnsbqi15byp0" path="res://entities/player_entities/friend_ship_1.gd" id="1_a2hdi"]
+[ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="2_a2hdi"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gg502"]
+atlas = ExtResource("2_a2hdi")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2hdi"]
+atlas = ExtResource("2_a2hdi")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n6ugi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gg502")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2hdi")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbily"]
+size = Vector2(16, 14)
+
+[node name="Friend_Ship_1" type="CharacterBody2D" unique_id=1234138077]
+script = ExtResource("1_a2hdi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1720315748]
+texture_filter = 3
+rotation = 3.1415927
+sprite_frames = SubResource("SpriteFrames_n6ugi")
+animation = &"shoot"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389308610]
+shape = SubResource("RectangleShape2D_gbily")
+
+[node name="Timer" type="Timer" parent="." unique_id=918810731]
+autostart = true
+
+[node name="Health" type="ProgressBar" parent="." unique_id=477006458]
+self_modulate = Color(18.892157, 0, 0, 1)
+offset_left = -12.0
+offset_top = -7.0
+offset_right = -8.0
+offset_bottom = 7.0
+max_value = 10.0
+fill_mode = 3
+show_percentage = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

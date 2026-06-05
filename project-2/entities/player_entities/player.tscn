@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dppkr4e8smqfd"]
 
-[ext_resource type="Script" uid="uid://clmgb8ucajsmq" path="res://entities/player.gd" id="1_b0kkn"]
+[ext_resource type="Script" uid="uid://clmgb8ucajsmq" path="res://entities/player_entities/player.gd" id="1_b0kkn"]
 [ext_resource type="Texture2D" uid="uid://cdx74i82lwofg" path="res://assets/space_ship.png" id="1_merdl"]
 
 [node name="Player" type="CharacterBody2D" unique_id=699583065]

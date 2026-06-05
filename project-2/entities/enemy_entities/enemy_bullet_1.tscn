@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://rv3n0cuk5fxy"]
+
+[ext_resource type="Script" uid="uid://com2wa144m5vp" path="res://entities/enemy_entities/enemy_bullet_1.gd" id="1_la8mc"]
+[ext_resource type="Texture2D" uid="uid://bbj3w73td8oa8" path="res://assets/bullet_1.png" id="2_62pw6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_va66d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_62pw6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iaqys"]
+size = Vector2(4, 6)
+
+[node name="Enemy_bullet_1" type="CharacterBody2D" unique_id=1566721740]
+script = ExtResource("1_la8mc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1277033482]
+self_modulate = Color(1, 0.39215687, 1, 1)
+texture_filter = 3
+position = Vector2(-3.5762787e-07, -3.5762787e-07)
+scale = Vector2(1.4999999, 1.4999999)
+sprite_frames = SubResource("SpriteFrames_va66d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1118827362]
+shape = SubResource("RectangleShape2D_iaqys")

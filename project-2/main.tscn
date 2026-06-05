@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dkdoyhxfcf6fb" path="res://main.gd" id="1_1bvp3"]
 [ext_resource type="Texture2D" uid="uid://drnslwr1gira5" path="res://assets/Space_Stars2.png" id="1_ig7tw"]
-[ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player.tscn" id="2_0xm2m"]
-[ext_resource type="PackedScene" uid="uid://7d786cnajx6j" path="res://entities/enemy.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player_entities/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://7d786cnajx6j" path="res://entities/enemy_entities/enemy.tscn" id="3_h2yge"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(16, 256)
@@ -40,4 +40,11 @@ rotation = 1.5707964
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="Enemy" parent="." unique_id=784021926 instance=ExtResource("3_h2yge")]
-position = Vector2(216, 24)
+position = Vector2(290, 24)
+
+[node name="Level" type="Label" parent="." unique_id=1041725008]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Level: 1"
+horizontal_alignment = 1
+vertical_alignment = 1

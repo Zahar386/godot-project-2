@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
-const FRIENDSHIP1 = preload("res://entities/friend_ship_1.tscn")
+const FRIENDSHIP1 = preload("res://entities/player_entities/friend_ship_1.tscn")
 const SPEED = 30.0
+
 @onready var can_shoot = false
 @onready var health = 100
 
