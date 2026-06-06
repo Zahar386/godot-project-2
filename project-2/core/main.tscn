@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://cuvyho40b6qfv"]
+
+[ext_resource type="Script" uid="uid://dkdoyhxfcf6fb" path="res://core/main.gd" id="1_xa854"]
+[ext_resource type="Texture2D" uid="uid://drnslwr1gira5" path="res://assets/Space_Stars2.png" id="2_kagtj"]
+[ext_resource type="PackedScene" uid="uid://7d786cnajx6j" path="res://entities/enemy_entities/enemy.tscn" id="3_cus2n"]
+[ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player_entities/player.tscn" id="4_brq4u"]
+[ext_resource type="AudioStream" uid="uid://drjjasge2hafy" path="res://assets/240_Bits_Per_Mile_draft_2.ogg" id="5_jsmgm"]
+[ext_resource type="Texture2D" uid="uid://c8xqscuqlnv1y" path="res://assets/gear.png" id="6_kagtj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
+size = Vector2(16, 256)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_lquwl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_lquwl"]
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cus2n"]
+font_size = 14
+font_color = Color(0, 0, 0.81960785, 1)
+
+[node name="Main" type="Node2D" unique_id=972571192]
+script = ExtResource("1_xa854")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1781844975]
+texture_filter = 3
+texture_repeat = 2
+position = Vector2(128, 128)
+texture = ExtResource("2_kagtj")
+region_enabled = true
+region_rect = Rect2(0, 0, 256, 256)
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=1756923132]
+position = Vector2(-8, 8)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1051873091]
+position = Vector2(16, 120)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=137529466]
+position = Vector2(256, 120)
+shape = SubResource("RectangleShape2D_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls" unique_id=1993777892]
+self_modulate = Color(0.8509804, 0.7764706, 0.25882354, 1)
+position = Vector2(16, 128)
+scale = Vector2(16, 176)
+texture = SubResource("CanvasTexture_lquwl")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Walls" unique_id=235826950]
+self_modulate = Color(0.8509804, 0.7764706, 0.25882354, 1)
+position = Vector2(256, 128)
+scale = Vector2(16, 176)
+texture = SubResource("CanvasTexture_lquwl")
+
+[node name="Level" type="Label" parent="Walls" unique_id=1041725008]
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 19.0
+offset_bottom = 216.0
+text = "Level: 1"
+label_settings = SubResource("LabelSettings_lquwl")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+paragraph_separator = " \\n"
+
+[node name="Metall" type="Label" parent="Walls" unique_id=1350883285]
+offset_left = 248.0
+offset_top = 56.0
+offset_right = 264.0
+offset_bottom = 76.0
+text = "50"
+label_settings = SubResource("LabelSettings_cus2n")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Sprite2D3" type="Sprite2D" parent="Walls" unique_id=524228263]
+position = Vector2(256, 48)
+scale = Vector2(0.015625002, 0.015625002)
+texture = ExtResource("6_kagtj")
+
+[node name="Enemy" parent="." unique_id=784021926 instance=ExtResource("3_cus2n")]
+position = Vector2(290, 24)
+
+[node name="Player" parent="." unique_id=699583065 instance=ExtResource("4_brq4u")]
+position = Vector2(128, 240)
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1054466682]
+stream = ExtResource("5_jsmgm")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true

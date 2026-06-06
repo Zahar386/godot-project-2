@@ -28,6 +28,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbily"]
 size = Vector2(16, 14)
 
+[sub_resource type="AudioStream" id="AudioStream_xwd7e"]
+
 [node name="Friend_Ship_1" type="CharacterBody2D" unique_id=1234138077]
 script = ExtResource("1_a2hdi")
 
@@ -52,5 +54,9 @@ offset_bottom = 7.0
 max_value = 10.0
 fill_mode = 3
 show_percentage = false
+
+[node name="Sound_effects" type="AudioStreamPlayer2D" parent="." unique_id=838139649]
+stream = SubResource("AudioStream_xwd7e")
+volume_db = -8.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

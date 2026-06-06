@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpkq4v7k1yekf" path="res://entities/enemy_entities/enemy.gd" id="1_pqhw6"]
 [ext_resource type="Texture2D" uid="uid://bcii7njiyy30b" path="res://assets/Enemy_ship.png" id="2_b4nis"]
+[ext_resource type="AudioStream" uid="uid://b2d28srjw7u0a" path="res://assets/Megabit.ogg" id="3_emlwh"]
 
 [node name="Enemy" type="CharacterBody2D" unique_id=784021926]
 script = ExtResource("1_pqhw6")
@@ -37,7 +38,11 @@ fill_mode = 3
 show_percentage = false
 
 [node name="Timer" type="Timer" parent="." unique_id=1636161690]
-wait_time = 15.0
+wait_time = 16.0
 autostart = true
+
+[node name="Sound_effects" type="AudioStreamPlayer2D" parent="." unique_id=524988035]
+stream = ExtResource("3_emlwh")
+volume_db = -13.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

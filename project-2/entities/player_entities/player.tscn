@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clmgb8ucajsmq" path="res://entities/player_entities/player.gd" id="1_b0kkn"]
 [ext_resource type="Texture2D" uid="uid://cdx74i82lwofg" path="res://assets/space_ship.png" id="1_merdl"]
+[ext_resource type="AudioStream" uid="uid://uf3rykvdwu2b" path="res://assets/fnaf-world-death-sound-made-with-Voicemod.mp3" id="3_8b8ub"]
 
 [node name="Player" type="CharacterBody2D" unique_id=699583065]
 motion_mode = 1
@@ -36,5 +37,8 @@ offset_right = -15.0
 offset_bottom = 13.0
 fill_mode = 3
 show_percentage = false
+
+[node name="Get_damage" type="AudioStreamPlayer2D" parent="." unique_id=1471636004]
+stream = ExtResource("3_8b8ub")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
