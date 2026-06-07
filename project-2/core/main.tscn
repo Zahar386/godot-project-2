@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://drnslwr1gira5" path="res://assets/Space_Stars2.png" id="2_kagtj"]
 [ext_resource type="PackedScene" uid="uid://7d786cnajx6j" path="res://entities/enemy_entities/enemy.tscn" id="3_cus2n"]
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player_entities/player.tscn" id="4_brq4u"]
+[ext_resource type="Texture2D" uid="uid://bwrw3dtpkmab7" path="res://assets/zheltaja-molnija.png" id="4_cus2n"]
+[ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="5_brq4u"]
 [ext_resource type="AudioStream" uid="uid://drjjasge2hafy" path="res://assets/240_Bits_Per_Mile_draft_2.ogg" id="5_jsmgm"]
 [ext_resource type="Texture2D" uid="uid://c8xqscuqlnv1y" path="res://assets/gear.png" id="6_kagtj"]
 
@@ -13,11 +15,20 @@ size = Vector2(16, 256)
 [sub_resource type="CanvasTexture" id="CanvasTexture_lquwl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lquwl"]
+font_size = 19
 font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cus2n"]
 font_size = 14
-font_color = Color(0, 0, 0.81960785, 1)
+font_color = Color(0, 0, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_brq4u"]
+font_size = 8
+font_color = Color(0.8862745, 0.8784314, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsmgm"]
+atlas = ExtResource("5_brq4u")
+region = Rect2(0, 0, 16, 16)
 
 [node name="Main" type="Node2D" unique_id=972571192]
 script = ExtResource("1_xa854")
@@ -32,7 +43,6 @@ region_rect = Rect2(0, 0, 256, 256)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1756923132]
 position = Vector2(-8, 8)
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1051873091]
 position = Vector2(16, 120)
@@ -43,13 +53,13 @@ position = Vector2(256, 120)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="Walls" unique_id=1993777892]
-self_modulate = Color(0.8509804, 0.7764706, 0.25882354, 1)
+self_modulate = Color(0.4745098, 0.6509804, 0.5529412, 1)
 position = Vector2(16, 128)
 scale = Vector2(16, 176)
 texture = SubResource("CanvasTexture_lquwl")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Walls" unique_id=235826950]
-self_modulate = Color(0.8509804, 0.7764706, 0.25882354, 1)
+self_modulate = Color(0.4745098, 0.6509804, 0.5529412, 1)
 position = Vector2(256, 128)
 scale = Vector2(16, 176)
 texture = SubResource("CanvasTexture_lquwl")
@@ -57,9 +67,9 @@ texture = SubResource("CanvasTexture_lquwl")
 [node name="Level" type="Label" parent="Walls" unique_id=1041725008]
 offset_left = 8.0
 offset_top = 40.0
-offset_right = 19.0
-offset_bottom = 216.0
-text = "Level: 1"
+offset_right = 24.0
+offset_bottom = 217.0
+text = "Level:1"
 label_settings = SubResource("LabelSettings_lquwl")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -76,10 +86,57 @@ label_settings = SubResource("LabelSettings_cus2n")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Sprite2D3" type="Sprite2D" parent="Walls" unique_id=524228263]
+[node name="Gear" type="Sprite2D" parent="Walls" unique_id=524228263]
+texture_filter = 3
 position = Vector2(256, 48)
 scale = Vector2(0.015625002, 0.015625002)
 texture = ExtResource("6_kagtj")
+
+[node name="Lightning" type="Sprite2D" parent="Walls" unique_id=2019481898]
+texture_filter = 3
+position = Vector2(256, 80)
+scale = Vector2(0.004000003, 0.0040000016)
+texture = ExtResource("4_cus2n")
+
+[node name="Energy" type="Label" parent="Walls" unique_id=624860770]
+offset_left = 248.0
+offset_top = 86.0
+offset_right = 264.0
+offset_bottom = 98.0
+text = "1"
+label_settings = SubResource("LabelSettings_brq4u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Friend_1" type="Sprite2D" parent="Walls" unique_id=436770752]
+self_modulate = Color(0, 0, 1, 1)
+texture_filter = 3
+position = Vector2(256, 107)
+texture = SubResource("AtlasTexture_jsmgm")
+
+[node name="Friend_2" type="Sprite2D" parent="Walls" unique_id=1734225364]
+self_modulate = Color(0, 1, 0, 1)
+texture_filter = 3
+position = Vector2(256, 131)
+texture = SubResource("AtlasTexture_jsmgm")
+
+[node name="Friend_3" type="Sprite2D" parent="Walls" unique_id=1068729181]
+self_modulate = Color(1, 0, 0, 1)
+texture_filter = 3
+position = Vector2(256, 154)
+texture = SubResource("AtlasTexture_jsmgm")
+
+[node name="Friend_4" type="Sprite2D" parent="Walls" unique_id=55448628]
+self_modulate = Color(0.21568628, 0.21568628, 0.21568628, 1)
+texture_filter = 3
+position = Vector2(256, 176)
+texture = SubResource("AtlasTexture_jsmgm")
+
+[node name="Friend_5" type="Sprite2D" parent="Walls" unique_id=1106259073]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+texture_filter = 3
+position = Vector2(256, 199)
+texture = SubResource("AtlasTexture_jsmgm")
 
 [node name="Enemy" parent="." unique_id=784021926 instance=ExtResource("3_cus2n")]
 position = Vector2(290, 24)

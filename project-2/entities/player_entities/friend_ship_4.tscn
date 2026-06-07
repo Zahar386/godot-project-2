@@ -1,14 +1,14 @@
-[gd_scene format=3 uid="uid://cginallphnnxx"]
+[gd_scene format=3 uid="uid://dl38y2odj7at5"]
 
-[ext_resource type="Script" uid="uid://xnsbqi15byp0" path="res://entities/player_entities/friend_ship_1.gd" id="1_a2hdi"]
-[ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="2_a2hdi"]
+[ext_resource type="Script" uid="uid://b8di86lch6rxf" path="res://entities/player_entities/friend_ship_4.gd" id="1_ccq4j"]
+[ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="1_h8w7y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg502"]
-atlas = ExtResource("2_a2hdi")
+atlas = ExtResource("1_h8w7y")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a2hdi"]
-atlas = ExtResource("2_a2hdi")
+atlas = ExtResource("1_h8w7y")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n6ugi"]
@@ -20,38 +20,42 @@ animations = [{
 "duration": 1.5,
 "texture": SubResource("AtlasTexture_a2hdi")
 }],
-"loop": false,
+"loop": true,
 "name": &"shoot",
-"speed": 2.0
+"speed": 1.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbily"]
-size = Vector2(16, 14)
+size = Vector2(20, 14)
 
 [sub_resource type="AudioStream" id="AudioStream_xwd7e"]
 
-[node name="Friend_Ship_1" type="CharacterBody2D" unique_id=1234138077]
-script = ExtResource("1_a2hdi")
+[node name="Friend_Ship_4" type="CharacterBody2D" unique_id=1234138077]
+script = ExtResource("1_ccq4j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1720315748]
-self_modulate = Color(0, 0, 1, 1)
+self_modulate = Color(0.21568628, 0.21568628, 0.21568628, 1)
 texture_filter = 3
-rotation = 3.1415927
+scale = Vector2(1.25, 1)
 sprite_frames = SubResource("SpriteFrames_n6ugi")
 animation = &"shoot"
+frame = 1
+frame_progress = 0.22662058
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389308610]
 shape = SubResource("RectangleShape2D_gbily")
 
 [node name="Timer" type="Timer" parent="." unique_id=918810731]
+wait_time = 1.5
 autostart = true
 
 [node name="Health" type="ProgressBar" parent="." unique_id=477006458]
 self_modulate = Color(18.892157, 0, 0, 1)
-offset_left = -12.0
-offset_top = -7.0
-offset_right = -8.0
-offset_bottom = 7.0
+offset_left = 10.0
+offset_top = 7.0
+offset_right = 14.0
+offset_bottom = 27.0
+rotation = 1.5707964
 max_value = 10.0
 fill_mode = 3
 show_percentage = false

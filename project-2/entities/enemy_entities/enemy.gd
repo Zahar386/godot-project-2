@@ -24,6 +24,7 @@ func take_damage(damage):
 
 func _physics_process(delta: float) -> void:
 	$Wait_for_shooting.value = $Timer.wait_time - $Timer.time_left
+	$Health.value = health
 
 func _on_timer_timeout() -> void:
 	var bullet1 = BULLET.instantiate()

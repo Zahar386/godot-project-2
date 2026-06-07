@@ -12,11 +12,7 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		var collider = collision.get_collider()
 		if collider.has_method('take_damage'):
-			collider.take_damage(30)
+			collider.take_damage(10)
 			if global_position.y >= 240-28:
+				collider.take_damage(20)
 				queue_free()
-
-func take_damage(damage):
-	health -= damage
-	if health <= 0:
-		queue_free()
