@@ -14,23 +14,25 @@ region = Rect2(0, 0, 16, 16)
 [sub_resource type="SpriteFrames" id="SpriteFrames_n6ugi"]
 animations = [{
 "frames": [{
-"duration": 0.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gg502")
 }, {
-"duration": 1.5,
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_a2hdi")
 }],
 "loop": true,
 "name": &"shoot",
-"speed": 1.0
+"speed": 0.75
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbily"]
-size = Vector2(20, 14)
+size = Vector2(18, 1)
 
-[sub_resource type="AudioStream" id="AudioStream_xwd7e"]
+[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_ccq4j"]
 
 [node name="Friend_Ship_4" type="CharacterBody2D" unique_id=1234138077]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_ccq4j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1720315748]
@@ -39,10 +41,10 @@ texture_filter = 3
 scale = Vector2(1.25, 1)
 sprite_frames = SubResource("SpriteFrames_n6ugi")
 animation = &"shoot"
-frame = 1
-frame_progress = 0.22662058
+frame_progress = 0.6598123
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389308610]
+position = Vector2(0, -6.5)
 shape = SubResource("RectangleShape2D_gbily")
 
 [node name="Timer" type="Timer" parent="." unique_id=918810731]
@@ -56,12 +58,12 @@ offset_top = 7.0
 offset_right = 14.0
 offset_bottom = 27.0
 rotation = 1.5707964
-max_value = 10.0
+max_value = 25.0
 fill_mode = 3
 show_percentage = false
 
 [node name="Sound_effects" type="AudioStreamPlayer2D" parent="." unique_id=838139649]
-stream = SubResource("AudioStream_xwd7e")
+stream = SubResource("AudioStreamMP3_ccq4j")
 volume_db = -8.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

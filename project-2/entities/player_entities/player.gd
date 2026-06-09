@@ -1,11 +1,11 @@
 extends CharacterBody2D
 
 const FRIENDSHIP1 = preload("res://entities/player_entities/friend_ship_1.tscn")
+const FRIENDSHIP4 = preload("res://entities/player_entities/friend_ship_4.tscn")
 const SPEED = 30.0
 
 @onready var can_shoot = false
 @onready var health = 100
-@onready var enemyes = []
 
 func _physics_process(delta: float) -> void:
 	var x_direction := Input.get_axis("ui_left", "ui_right")
@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	if can_shoot == true:
+	if can_shoot == true  and GameManager.energy < 2:
 		if Input.is_action_just_pressed("create_ship_1") and GameManager.metall >= 10:
 			GameManager.metall -= 10
 			var ship1 = FRIENDSHIP1.instantiate()
@@ -22,11 +22,20 @@ func _physics_process(delta: float) -> void:
 			get_parent().add_child(ship1)
 			can_shoot = false
 			$Wait_for_creating.value = 0
-			GameManager.energy -= 0.05
-			$Timer.start(3 * (2-GameManager.energy))
+			GameManager.energy += 0.05
+			$Timer.start(3 * GameManager.energy)
 			$Wait_for_creating.max_value = $Timer.wait_time
-			enemyes.append(ship1)
-	 
+		if Input.is_action_just_pressed("create_ship_4") and GameManager.metall >= 25:
+			GameManager.metall -= 25
+			var ship4 = FRIENDSHIP4.instantiate()
+			ship4.global_position = global_position + Vector2(0, -25)
+			get_parent().add_child(ship4)
+			can_shoot = false
+			$Wait_for_creating.value = 0
+			GameManager.energy += 0.15
+			$Timer.start(3 * GameManager.energy)
+			$Wait_for_creating.max_value = $Timer.wait_time
+		print(GameManager.energy)
 	$Wait_for_creating.value = $Timer.wait_time - $Timer.time_left
 	$Health.value = health
 	

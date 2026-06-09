@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bwrw3dtpkmab7" path="res://assets/zheltaja-molnija.png" id="4_cus2n"]
 [ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="5_brq4u"]
 [ext_resource type="AudioStream" uid="uid://drjjasge2hafy" path="res://assets/240_Bits_Per_Mile_draft_2.ogg" id="5_jsmgm"]
+[ext_resource type="Texture2D" uid="uid://bm4q34pu33q6k" path="res://assets/coin.png" id="6_jsmgm"]
 [ext_resource type="Texture2D" uid="uid://c8xqscuqlnv1y" path="res://assets/gear.png" id="6_kagtj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
@@ -15,7 +16,7 @@ size = Vector2(16, 256)
 [sub_resource type="CanvasTexture" id="CanvasTexture_lquwl"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_lquwl"]
-font_size = 19
+font_size = 14
 font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_cus2n"]
@@ -43,24 +44,27 @@ region_rect = Rect2(0, 0, 256, 256)
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=1756923132]
 position = Vector2(-8, 8)
+collision_layer = 3
+collision_mask = 3
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1051873091]
 position = Vector2(16, 120)
 shape = SubResource("RectangleShape2D_0xm2m")
 
+[node name="Sprite2D" type="Sprite2D" parent="Walls/CollisionShape2D" unique_id=1993777892]
+self_modulate = Color(0.4745098, 0.6509804, 0.5529412, 1)
+position = Vector2(0, 8)
+scale = Vector2(16, 176)
+texture = SubResource("CanvasTexture_lquwl")
+
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=137529466]
 position = Vector2(256, 120)
 shape = SubResource("RectangleShape2D_0xm2m")
 
-[node name="Sprite2D" type="Sprite2D" parent="Walls" unique_id=1993777892]
+[node name="Sprite2D2" type="Sprite2D" parent="Walls/CollisionShape2D2" unique_id=235826950]
 self_modulate = Color(0.4745098, 0.6509804, 0.5529412, 1)
-position = Vector2(16, 128)
-scale = Vector2(16, 176)
-texture = SubResource("CanvasTexture_lquwl")
-
-[node name="Sprite2D2" type="Sprite2D" parent="Walls" unique_id=235826950]
-self_modulate = Color(0.4745098, 0.6509804, 0.5529412, 1)
-position = Vector2(256, 128)
+position = Vector2(0, 8)
 scale = Vector2(16, 176)
 texture = SubResource("CanvasTexture_lquwl")
 
@@ -68,8 +72,8 @@ texture = SubResource("CanvasTexture_lquwl")
 offset_left = 8.0
 offset_top = 40.0
 offset_right = 24.0
-offset_bottom = 217.0
-text = "Level:1"
+offset_bottom = 129.0
+text = "Level: 1"
 label_settings = SubResource("LabelSettings_lquwl")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -137,6 +141,11 @@ self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
 texture_filter = 3
 position = Vector2(256, 199)
 texture = SubResource("AtlasTexture_jsmgm")
+
+[node name="Money" type="Sprite2D" parent="Walls" unique_id=1998727399]
+position = Vector2(16, 136)
+scale = Vector2(0.0020844021, 0.0020844024)
+texture = ExtResource("6_jsmgm")
 
 [node name="Enemy" parent="." unique_id=784021926 instance=ExtResource("3_cus2n")]
 position = Vector2(290, 24)

@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const PLAYER = preload("res://entities/player_entities/player.tscn")
+
 const SPEED = 100.0
 @onready var health = 10
 
@@ -15,4 +16,6 @@ func _physics_process(delta: float) -> void:
 			collider.take_damage(10)
 			if global_position.y >= 240-28:
 				collider.take_damage(20)
+				queue_free()
+			if collider.has_method("give_metall"):
 				queue_free()
