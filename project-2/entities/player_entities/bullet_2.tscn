@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c2iwkxue07l1c"]
+
+[ext_resource type="Script" uid="uid://wwky7ofe53mh" path="res://entities/player_entities/bullet_2.gd" id="1_ji2jo"]
+[ext_resource type="Texture2D" uid="uid://bbj3w73td8oa8" path="res://assets/bullet_1.png" id="2_aweip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2sbcb"]
+size = Vector2(2, 4)
+
+[node name="Bullet_2" type="CharacterBody2D" unique_id=1351774980]
+scale = Vector2(1, 0.5)
+collision_layer = 2
+collision_mask = 2
+motion_mode = 1
+script = ExtResource("1_ji2jo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1069263014]
+self_modulate = Color(1, 0.21568628, 0.21568628, 1)
+texture_filter = 3
+texture = ExtResource("2_aweip")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2014084970]
+shape = SubResource("RectangleShape2D_2sbcb")

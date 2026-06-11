@@ -25,6 +25,10 @@ func take_damage(damage):
 func _physics_process(delta: float) -> void:
 	$Wait_for_shooting.value = $Timer.wait_time - $Timer.time_left
 	$Health.value = health
+	var collision = move_and_collide(Vector2.DOWN * delta)
+	if collision:
+		var collider = collision.get_collider()
+	global_position.y = 24
 
 func _on_timer_timeout() -> void:
 	var bullet1 = BULLET.instantiate()

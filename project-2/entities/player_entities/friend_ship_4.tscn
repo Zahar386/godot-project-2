@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b8di86lch6rxf" path="res://entities/player_entities/friend_ship_4.gd" id="1_ccq4j"]
 [ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="1_h8w7y"]
+[ext_resource type="AudioStream" uid="uid://clcsycbct7b8u" path="res://assets/gamingsins-ding-sonic-ring.mp3" id="3_d0cu7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg502"]
 atlas = ExtResource("1_h8w7y")
@@ -27,8 +28,6 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbily"]
 size = Vector2(18, 1)
-
-[sub_resource type="AudioStreamMP3" id="AudioStreamMP3_ccq4j"]
 
 [node name="Friend_Ship_4" type="CharacterBody2D" unique_id=1234138077]
 collision_layer = 2
@@ -62,8 +61,7 @@ max_value = 25.0
 fill_mode = 3
 show_percentage = false
 
-[node name="Sound_effects" type="AudioStreamPlayer2D" parent="." unique_id=838139649]
-stream = SubResource("AudioStreamMP3_ccq4j")
-volume_db = -8.0
+[node name="Shoot_sound" type="AudioStreamPlayer2D" parent="." unique_id=838139649]
+stream = ExtResource("3_d0cu7")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

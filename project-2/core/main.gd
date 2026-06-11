@@ -13,7 +13,10 @@ func _physics_process(delta: float) -> void:
 		
 		$Walls/Level.text = "Level: "+str(en.level+1)
 		$Walls/Metall.text = str(GameManager.metall)
-		$Walls/Energy.text = str(2-GameManager.energy)
+		if GameManager.energy < 2:
+			$Walls/Energy.text = str(2-GameManager.energy)
+		else:
+			$Walls/Energy.text = "0!"
 		
 		if pl.global_position.x > en.global_position.x:
 			en.global_position.x += en.SPEED*delta

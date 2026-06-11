@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c8xqscuqlnv1y" path="res://assets/gear.png" id="6_kagtj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
-size = Vector2(16, 256)
+size = Vector2(16, 205)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_lquwl"]
 
@@ -46,25 +46,24 @@ region_rect = Rect2(0, 0, 256, 256)
 position = Vector2(-8, 8)
 collision_layer = 3
 collision_mask = 3
-metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=1051873091]
-position = Vector2(16, 120)
+position = Vector2(16, 143)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="Sprite2D" type="Sprite2D" parent="Walls/CollisionShape2D" unique_id=1993777892]
 self_modulate = Color(0.4745098, 0.6509804, 0.5529412, 1)
-position = Vector2(0, 8)
+position = Vector2(0, -15)
 scale = Vector2(16, 176)
 texture = SubResource("CanvasTexture_lquwl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls" unique_id=137529466]
-position = Vector2(256, 120)
+position = Vector2(256, 142.5)
 shape = SubResource("RectangleShape2D_0xm2m")
 
 [node name="Sprite2D2" type="Sprite2D" parent="Walls/CollisionShape2D2" unique_id=235826950]
 self_modulate = Color(0.4745098, 0.6509804, 0.5529412, 1)
-position = Vector2(0, 8)
+position = Vector2(0, -14.5)
 scale = Vector2(16, 176)
 texture = SubResource("CanvasTexture_lquwl")
 

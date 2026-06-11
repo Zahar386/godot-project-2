@@ -1,15 +1,15 @@
-[gd_scene format=3 uid="uid://cginallphnnxx"]
+[gd_scene format=3 uid="uid://d0jbs463n0hiw"]
 
-[ext_resource type="Script" uid="uid://xnsbqi15byp0" path="res://entities/player_entities/friend_ship_1.gd" id="1_a2hdi"]
-[ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="2_a2hdi"]
-[ext_resource type="AudioStream" uid="uid://b2d28srjw7u0a" path="res://assets/Megabit.ogg" id="3_ife6n"]
+[ext_resource type="Script" uid="uid://lbtkocy255l8" path="res://entities/player_entities/friend_ship_3.gd" id="1_eeudl"]
+[ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="2_3jm0t"]
+[ext_resource type="AudioStream" uid="uid://b2d28srjw7u0a" path="res://assets/Megabit.ogg" id="3_3jm0t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg502"]
-atlas = ExtResource("2_a2hdi")
+atlas = ExtResource("2_3jm0t")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a2hdi"]
-atlas = ExtResource("2_a2hdi")
+atlas = ExtResource("2_3jm0t")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n6ugi"]
@@ -26,41 +26,41 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ife6n"]
-size = Vector2(16, 14)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbily"]
+size = Vector2(22, 6)
 
-[node name="Friend_Ship_1" type="CharacterBody2D" unique_id=1234138077]
-script = ExtResource("1_a2hdi")
+[node name="Friend_Ship_3" type="CharacterBody2D" unique_id=1234138077]
+script = ExtResource("1_eeudl")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1720315748]
-self_modulate = Color(0, 0, 1, 1)
+self_modulate = Color(1, 0, 0, 1)
 texture_filter = 3
-position = Vector2(2.3841858e-07, 2.3841858e-07)
 rotation = 3.1415927
+scale = Vector2(1.5, 0.4)
 sprite_frames = SubResource("SpriteFrames_n6ugi")
 animation = &"shoot"
-frame_progress = 0.3929426
+frame = 1
+frame_progress = 0.5512919
 
 [node name="Timer" type="Timer" parent="." unique_id=918810731]
-physics_interpolation_mode = 2
+wait_time = 0.2
 autostart = true
 
 [node name="Health" type="ProgressBar" parent="." unique_id=477006458]
-physics_interpolation_mode = 0
 self_modulate = Color(18.892157, 0, 0, 1)
-offset_left = -12.0
-offset_top = -7.0
-offset_right = -8.0
-offset_bottom = 7.0
+offset_left = -16.0
+offset_top = -3.0
+offset_right = -12.0
+offset_bottom = 3.0
 max_value = 10.0
 fill_mode = 3
 show_percentage = false
 
 [node name="Shoot_sound" type="AudioStreamPlayer2D" parent="." unique_id=838139649]
-stream = ExtResource("3_ife6n")
+stream = ExtResource("3_3jm0t")
 volume_db = -8.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879812941]
-shape = SubResource("RectangleShape2D_ife6n")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1225816990]
+shape = SubResource("RectangleShape2D_gbily")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

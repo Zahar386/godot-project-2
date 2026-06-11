@@ -1,8 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 10.0
-const BULLET = preload("res://entities/player_entities/bullet_1.tscn")
-@onready var health = 10
+const SPEED = 15.0
+const BULLET = preload("res://entities/player_entities/bullet_2.tscn")
+@onready var num_gun = 0
+@onready var health = 15
 
 func _physics_process(delta: float) -> void:
 	$AnimatedSprite2D.play("shoot")
@@ -19,9 +20,13 @@ func _physics_process(delta: float) -> void:
 
 func _on_timer_timeout() -> void:
 	var bullet = BULLET.instantiate()
-	bullet.global_position = global_position + Vector2(0, -20)
+	if num_gun == 0:
+		bullet.global_position = global_position + Vector2(5, -8)
+		num_gun = 1
+	elif num_gun == 1:
+		bullet.global_position = global_position + Vector2(-5, -8)
+		num_gun = 0
 	get_parent().add_child(bullet)
-	global_position += Vector2(0, 5)
 	$Shoot_sound.play()
 
 func take_damage(damage):
