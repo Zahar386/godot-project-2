@@ -4,6 +4,7 @@ const FRIENDSHIP1 = preload("res://entities/player_entities/friend_ship_1.tscn")
 const FRIENDSHIP2 = preload("res://entities/player_entities/friend_ship_2.tscn")
 const FRIENDSHIP3 = preload("res://entities/player_entities/friend_ship_3.tscn")
 const FRIENDSHIP4 = preload("res://entities/player_entities/friend_ship_4.tscn")
+const FRIENDSHIP5 = preload("res://entities/player_entities/friend_ship_5.tscn")
 
 @onready var SPEED = 30.0
 @onready var can_shoot = false
@@ -59,6 +60,15 @@ func _physics_process(delta: float) -> void:
 				var ship4 = FRIENDSHIP4.instantiate()
 				ship4.global_position = global_position + Vector2(0, -25)
 				get_parent().add_child(ship4)
+				can_shoot = false
+				$Wait_for_creating.value = 0
+				$Timer.start(3 * GameManager.energy)
+				$Wait_for_creating.max_value = $Timer.wait_time
+			if Input.is_action_just_pressed("create_ship_5") and GameManager.metall >= 20:
+				GameManager.metall -= 20
+				var ship5 = FRIENDSHIP5.instantiate()
+				ship5.global_position = global_position + Vector2(0, -25)
+				get_parent().add_child(ship5)
 				can_shoot = false
 				$Wait_for_creating.value = 0
 				$Timer.start(3 * GameManager.energy)

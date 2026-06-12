@@ -13,4 +13,5 @@ func _physics_process(delta: float) -> void:
 			var collider = collision.get_collider()
 			if collider.has_method('take_damage'):
 				collider.take_damage(7)
+				GameManager.energy = 1
 			queue_free()
