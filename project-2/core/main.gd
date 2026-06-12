@@ -4,7 +4,10 @@ extends Node2D
 @onready var en = $Enemy
 
 func _physics_process(delta: float) -> void:
-	if pl.is_queued_for_deletion() == false:
+	if GameManager.game_situation == 0:
+		get_tree().paused=true
+	elif GameManager.game_situation == 1:
+		$Music.play()
 		if pl.health <= 0:
 			$Music.stream_paused = true
 			pl.queue_free()
@@ -13,10 +16,7 @@ func _physics_process(delta: float) -> void:
 		
 		$Walls/Level.text = "Level: "+str(en.level+1)
 		$Walls/Metall.text = str(GameManager.metall)
-		if GameManager.energy < 2:
-			$Walls/Energy.text = str(2-GameManager.energy)
-		else:
-			$Walls/Energy.text = "0!"
+		$Walls/Energy.text = str(2-GameManager.energy)
 		
 		if pl.global_position.x > en.global_position.x:
 			en.global_position.x += en.SPEED*delta
@@ -27,5 +27,4 @@ func _physics_process(delta: float) -> void:
 			$Background.region_rect.position.y += 0.33
 		else:
 			$Background.region_rect.position.y = 0
-	else:
-		pass
+	$Cash/Money.text = str(GameManager.money)

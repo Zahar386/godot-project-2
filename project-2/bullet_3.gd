@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 80.0
+const SPEED = 110.0
 
 func _physics_process(delta: float) -> void:
 	global_position += Vector2.UP*delta*SPEED
@@ -10,8 +10,5 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		var collider = collision.get_collider()
 		if collider.has_method('take_damage'):
-			if global_position.y <= 50 and is_queued_for_deletion() == false:
-				if collider.SPEED > 5:
-					collider.SPEED -= 0.1
-			collider.take_damage(1.5)
+			collider.take_damage(2)
 		queue_free()

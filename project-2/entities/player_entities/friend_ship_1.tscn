@@ -30,6 +30,8 @@ animations = [{
 size = Vector2(16, 14)
 
 [node name="Friend_Ship_1" type="CharacterBody2D" unique_id=1234138077]
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_a2hdi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1720315748]
@@ -63,4 +65,8 @@ volume_db = -8.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1879812941]
 shape = SubResource("RectangleShape2D_ife6n")
 
+[node name="Poison_timer" type="Timer" parent="." unique_id=498648108]
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Poison_timer" to="." method="_on_poison_timer_timeout"]

@@ -23,7 +23,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"shoot",
-"speed": 2.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbily"]
@@ -40,7 +40,7 @@ scale = Vector2(1.5, 0.4)
 sprite_frames = SubResource("SpriteFrames_n6ugi")
 animation = &"shoot"
 frame = 1
-frame_progress = 0.5512919
+frame_progress = 0.29889563
 
 [node name="Timer" type="Timer" parent="." unique_id=918810731]
 wait_time = 0.2
@@ -52,7 +52,7 @@ offset_left = -16.0
 offset_top = -3.0
 offset_right = -12.0
 offset_bottom = 3.0
-max_value = 10.0
+max_value = 5.0
 fill_mode = 3
 show_percentage = false
 
@@ -63,4 +63,8 @@ volume_db = -8.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1225816990]
 shape = SubResource("RectangleShape2D_gbily")
 
+[node name="Poison_timer" type="Timer" parent="." unique_id=325547455]
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Poison_timer" to="." method="_on_poison_timer_timeout"]

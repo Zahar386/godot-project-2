@@ -43,6 +43,7 @@ frame_progress = 0.3929426
 
 [node name="Timer" type="Timer" parent="." unique_id=918810731]
 physics_interpolation_mode = 2
+wait_time = 0.75
 autostart = true
 
 [node name="Health" type="ProgressBar" parent="." unique_id=477006458]
@@ -62,5 +63,8 @@ volume_db = -8.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1797523528]
 shape = SubResource("RectangleShape2D_c1mu6")
+
+[node name="Poison_timer" type="Timer" parent="." unique_id=1014851006]
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

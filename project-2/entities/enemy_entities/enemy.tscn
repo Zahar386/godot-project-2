@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://dpkq4v7k1yekf" path="res://entities/enemy_entities/enemy.gd" id="1_pqhw6"]
 [ext_resource type="Texture2D" uid="uid://bcii7njiyy30b" path="res://assets/Enemy_ship.png" id="2_b4nis"]
 [ext_resource type="AudioStream" uid="uid://b2d28srjw7u0a" path="res://assets/Megabit.ogg" id="3_emlwh"]
+[ext_resource type="Texture2D" uid="uid://i82lno1u7g7g" path="res://assets/Rust.png" id="4_oxlqt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_s1wym"]
+font_size = 13
+font_color = Color(0.77254903, 0.56078434, 0.34901962, 1)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=784021926]
 collision_layer = 3
@@ -47,4 +52,23 @@ autostart = true
 stream = ExtResource("3_emlwh")
 volume_db = -13.0
 
+[node name="Poison_timer" type="Timer" parent="." unique_id=1575778475]
+autostart = true
+
+[node name="Rust" type="Sprite2D" parent="." unique_id=219714888]
+visible = false
+position = Vector2(40, -9)
+rotation = -1.5707964
+scale = Vector2(0.033, 0.05)
+texture = ExtResource("4_oxlqt")
+
+[node name="Poison_value" type="Label" parent="." unique_id=10006329]
+visible = false
+offset_left = 32.0
+offset_top = -18.0
+offset_right = 47.0
+text = "0"
+label_settings = SubResource("LabelSettings_s1wym")
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Poison_timer" to="." method="_on_poison_timer_timeout"]

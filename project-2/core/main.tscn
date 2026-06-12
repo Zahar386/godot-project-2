@@ -31,6 +31,10 @@ font_color = Color(0.8862745, 0.8784314, 0, 1)
 atlas = ExtResource("5_brq4u")
 region = Rect2(0, 0, 16, 16)
 
+[sub_resource type="LabelSettings" id="LabelSettings_jsmgm"]
+font_size = 14
+font_color = Color(0.7647059, 0, 0, 1)
+
 [node name="Main" type="Node2D" unique_id=972571192]
 script = ExtResource("1_xa854")
 
@@ -141,10 +145,26 @@ texture_filter = 3
 position = Vector2(256, 199)
 texture = SubResource("AtlasTexture_jsmgm")
 
-[node name="Money" type="Sprite2D" parent="Walls" unique_id=1998727399]
-position = Vector2(16, 136)
+[node name="Cash" type="ColorRect" parent="." unique_id=1687796621]
+offset_top = 134.0
+offset_right = 16.0
+offset_bottom = 174.0
+color = Color(0.23529412, 0.23529412, 1, 1)
+
+[node name="Coin" type="Sprite2D" parent="Cash" unique_id=1998727399]
+position = Vector2(8, 9)
 scale = Vector2(0.0020844021, 0.0020844024)
 texture = ExtResource("6_jsmgm")
+
+[node name="Money" type="Label" parent="Cash" unique_id=235137623]
+layout_mode = 0
+offset_top = 17.0
+offset_right = 16.0
+offset_bottom = 40.0
+text = "0"
+label_settings = SubResource("LabelSettings_jsmgm")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Enemy" parent="." unique_id=784021926 instance=ExtResource("3_cus2n")]
 position = Vector2(290, 24)
@@ -155,5 +175,4 @@ position = Vector2(128, 240)
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1054466682]
 stream = ExtResource("5_jsmgm")
 volume_db = -5.0
-autoplay = true
 parameters/looping = true

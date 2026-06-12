@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-@onready var health = 25
+@onready var SPEED = 5
+@onready var health = 20
 @onready var direction = Vector2.RIGHT
+@onready var poison_value = 0
 
 func _ready() -> void:
 	var choose = randi() % 2
@@ -11,22 +13,27 @@ func _ready() -> void:
 		direction = Vector2.RIGHT
 
 func _physics_process(delta: float) -> void:
-	$AnimatedSprite2D.play("shoot")
-	$Health.value = health
-	global_position += direction * 5 * delta
-	if global_position.y < -20:
-		take_damage(health)
-	
-	if int(global_position.x) == 230:
-		direction = Vector2.LEFT
-	elif int(global_position.x) == 25:
-		direction = Vector2.RIGHT
-	
-	var collision = move_and_collide(Vector2.UP * 2 * delta)
-	if collision:
-		var collider = collision.get_collider()
-		collider.queue_free()
-		take_damage(health)
+	if GameManager.game_situation == 1:
+		if poison_value > 0:
+			$Health.self_modulate = Color("00ff00ff")
+		else:
+			$Health.self_modulate = Color("ff0000ff")
+		$AnimatedSprite2D.play("shoot")
+		$Health.value = health
+		global_position += direction * SPEED * delta
+		if global_position.y < -20:
+			take_damage(health)
+		
+		if int(global_position.x) == 230:
+			direction = Vector2.LEFT
+		elif int(global_position.x) == 25:
+			direction = Vector2.RIGHT
+		
+		var collision = move_and_collide(Vector2.UP * (SPEED/2) * delta)
+		if collision:
+			var collider = collision.get_collider()
+			collider.queue_free()
+			take_damage(health)
 
 func _on_timer_timeout() -> void:
 	give_metall()
@@ -40,3 +47,8 @@ func take_damage(damage):
 
 func give_metall():
 	GameManager.metall += 1
+
+func _on_poison_timer_timeout() -> void:
+	if poison_value > 0:
+		take_damage(1)
+		poison_value -= 1
