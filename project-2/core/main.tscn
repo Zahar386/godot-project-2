@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://drjjasge2hafy" path="res://assets/240_Bits_Per_Mile_draft_2.ogg" id="5_jsmgm"]
 [ext_resource type="Texture2D" uid="uid://bm4q34pu33q6k" path="res://assets/coin.png" id="6_jsmgm"]
 [ext_resource type="Texture2D" uid="uid://c8xqscuqlnv1y" path="res://assets/gear.png" id="6_kagtj"]
+[ext_resource type="PackedScene" uid="uid://cay748du3sty4" path="res://core/hud.tscn" id="10_xhu5d"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0xm2m"]
 size = Vector2(16, 205)
@@ -30,6 +31,13 @@ font_color = Color(0.8862745, 0.8784314, 0, 1)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jsmgm"]
 atlas = ExtResource("5_brq4u")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_xhu5d"]
+font_size = 8
+
+[sub_resource type="LabelSettings" id="LabelSettings_rayt5"]
+font_size = 4
+font_color = Color(0.49019608, 0, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jsmgm"]
 font_size = 14
@@ -145,6 +153,74 @@ texture_filter = 3
 position = Vector2(256, 199)
 texture = SubResource("AtlasTexture_jsmgm")
 
+[node name="Metall_price_1" type="Label" parent="Walls" unique_id=2089318082]
+self_modulate = Color(1, 0, 0, 1)
+offset_left = 248.0
+offset_top = 112.0
+offset_right = 258.0
+offset_bottom = 124.0
+text = "10"
+label_settings = SubResource("LabelSettings_xhu5d")
+
+[node name="Metall_price_2" type="Label" parent="Walls" unique_id=780811536]
+self_modulate = Color(1, 0, 0, 1)
+offset_left = 248.0
+offset_top = 136.0
+offset_right = 258.0
+offset_bottom = 148.0
+text = "20"
+label_settings = SubResource("LabelSettings_xhu5d")
+
+[node name="Metall_price_3" type="Label" parent="Walls" unique_id=815278909]
+self_modulate = Color(1, 0, 0, 1)
+offset_left = 248.0
+offset_top = 159.0
+offset_right = 258.0
+offset_bottom = 171.0
+text = "30"
+label_settings = SubResource("LabelSettings_xhu5d")
+
+[node name="Metall_price_4" type="Label" parent="Walls" unique_id=278605756]
+self_modulate = Color(1, 0, 0, 1)
+offset_left = 249.0
+offset_top = 205.0
+offset_right = 263.0
+offset_bottom = 217.0
+text = ">40"
+label_settings = SubResource("LabelSettings_xhu5d")
+
+[node name="Energy_price_1" type="Label" parent="Walls" unique_id=763436555]
+offset_left = 258.0
+offset_top = 115.0
+offset_right = 264.0
+offset_bottom = 122.0
+text = "0.1"
+label_settings = SubResource("LabelSettings_rayt5")
+
+[node name="Energy_price_2" type="Label" parent="Walls" unique_id=1357223781]
+offset_left = 256.0
+offset_top = 139.0
+offset_right = 264.0
+offset_bottom = 146.0
+text = "0.15"
+label_settings = SubResource("LabelSettings_rayt5")
+
+[node name="Energy_price_3" type="Label" parent="Walls" unique_id=2084457015]
+offset_left = 252.0
+offset_top = 184.0
+offset_right = 260.0
+offset_bottom = 191.0
+text = "0.45"
+label_settings = SubResource("LabelSettings_rayt5")
+
+[node name="Energy_price_4" type="Label" parent="Walls" unique_id=1955186954]
+offset_left = 257.0
+offset_top = 162.0
+offset_right = 263.0
+offset_bottom = 169.0
+text = "0.3"
+label_settings = SubResource("LabelSettings_rayt5")
+
 [node name="Cash" type="ColorRect" parent="." unique_id=1687796621]
 offset_top = 134.0
 offset_right = 16.0
@@ -175,4 +251,7 @@ position = Vector2(128, 240)
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1054466682]
 stream = ExtResource("5_jsmgm")
 volume_db = -5.0
+autoplay = true
 parameters/looping = true
+
+[node name="HUD" parent="." unique_id=1514296125 instance=ExtResource("10_xhu5d")]

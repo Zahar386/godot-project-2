@@ -27,7 +27,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c1mu6"]
-size = Vector2(8, 14)
+size = Vector2(12, 18)
 
 [node name="Friend_Ship_2" type="CharacterBody2D" unique_id=1234138077]
 script = ExtResource("1_ha3cd")
@@ -36,7 +36,7 @@ script = ExtResource("1_ha3cd")
 self_modulate = Color(0, 1, 0, 1)
 texture_filter = 3
 rotation = 3.1415927
-scale = Vector2(0.5, 1)
+scale = Vector2(0.75, 1.25)
 sprite_frames = SubResource("SpriteFrames_n6ugi")
 animation = &"shoot"
 frame_progress = 0.3929426
@@ -49,10 +49,10 @@ autostart = true
 [node name="Health" type="ProgressBar" parent="." unique_id=477006458]
 physics_interpolation_mode = 0
 self_modulate = Color(18.892157, 0, 0, 1)
-offset_left = -8.0
-offset_top = -7.0
-offset_right = -4.0
-offset_bottom = 7.0
+offset_left = -10.0
+offset_top = -9.0
+offset_right = -6.0
+offset_bottom = 9.0
 max_value = 15.0
 fill_mode = 3
 show_percentage = false

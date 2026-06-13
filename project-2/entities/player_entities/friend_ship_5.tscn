@@ -27,7 +27,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbily"]
-size = Vector2(12, 18)
+size = Vector2(8, 14)
 
 [node name="Friend_Ship_5" type="CharacterBody2D" unique_id=1234138077]
 collision_layer = 2
@@ -39,11 +39,10 @@ self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
 texture_filter = 3
 position = Vector2(4.7683716e-07, 0)
 rotation = 3.1415927
-scale = Vector2(0.75000006, 1.25)
+scale = Vector2(0.5, 1)
 sprite_frames = SubResource("SpriteFrames_n6ugi")
 animation = &"shoot"
-frame = 1
-frame_progress = 0.80919266
+frame_progress = 0.4212042
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389308610]
 shape = SubResource("RectangleShape2D_gbily")

@@ -32,8 +32,11 @@ func _physics_process(delta: float) -> void:
 		var collision = move_and_collide(Vector2.UP * (SPEED/2) * delta)
 		if collision:
 			var collider = collision.get_collider()
-			collider.queue_free()
+			if collider.has_method('take_damage'):
+				collider.take_damage(health)
 			take_damage(health)
+	else:
+		queue_free()
 
 func _on_timer_timeout() -> void:
 	give_metall()
@@ -46,7 +49,8 @@ func take_damage(damage):
 		queue_free()
 
 func give_metall():
-	GameManager.metall += 1
+	if GameManager.metall < 99:
+		GameManager.metall += 1
 
 func _on_poison_timer_timeout() -> void:
 	if poison_value > 0:

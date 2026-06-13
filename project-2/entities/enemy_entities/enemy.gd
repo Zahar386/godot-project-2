@@ -23,6 +23,7 @@ func take_damage(damage):
 		$Wait_for_shooting.max_value = 30-SPEED+1
 		$Timer.start(30-SPEED)
 		GameManager.money += 1
+	print(health)
 
 func _physics_process(delta: float) -> void:
 	$Wait_for_shooting.value = $Timer.wait_time - $Timer.time_left

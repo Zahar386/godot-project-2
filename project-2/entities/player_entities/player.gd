@@ -35,8 +35,8 @@ func _physics_process(delta: float) -> void:
 				$Timer.start(3 * GameManager.energy)
 				$Wait_for_creating.max_value = $Timer.wait_time
 				SPEED -= 1
-			if Input.is_action_just_pressed("create_ship_2") and GameManager.metall >= 15 and 2-GameManager.energy >= 0.14:
-				GameManager.metall -= 15
+			if Input.is_action_just_pressed("create_ship_2") and GameManager.metall >= 20 and 2-GameManager.energy >= 0.14:
+				GameManager.metall -= 20
 				var ship2 = FRIENDSHIP2.instantiate()
 				ship2.global_position = global_position + Vector2(0, -25)
 				get_parent().add_child(ship2)
@@ -45,18 +45,18 @@ func _physics_process(delta: float) -> void:
 				$Wait_for_creating.value = 0
 				$Timer.start(3 * GameManager.energy)
 				$Wait_for_creating.max_value = $Timer.wait_time
-			if Input.is_action_just_pressed("create_ship_3") and GameManager.metall >= 35 and 2-GameManager.energy >= 0.39:
-				GameManager.metall -= 35
+			if Input.is_action_just_pressed("create_ship_3") and GameManager.metall >= 30 and 2-GameManager.energy >= 0.29:
+				GameManager.metall -= 30
 				var ship3 = FRIENDSHIP3.instantiate()
 				ship3.global_position = global_position + Vector2(0, -25)
 				get_parent().add_child(ship3)
-				GameManager.energy += 0.4
+				GameManager.energy += 0.3
 				can_shoot = false
 				$Wait_for_creating.value = 0
 				$Timer.start(3 * GameManager.energy)
 				$Wait_for_creating.max_value = $Timer.wait_time
-			if Input.is_action_just_pressed("create_ship_4") and 2-GameManager.energy >= 0.29:
-				GameManager.energy += 0.3
+			if Input.is_action_just_pressed("create_ship_4") and 2-GameManager.energy >= 0.44:
+				GameManager.energy += 0.45
 				var ship4 = FRIENDSHIP4.instantiate()
 				ship4.global_position = global_position + Vector2(0, -25)
 				get_parent().add_child(ship4)
@@ -64,8 +64,7 @@ func _physics_process(delta: float) -> void:
 				$Wait_for_creating.value = 0
 				$Timer.start(3 * GameManager.energy)
 				$Wait_for_creating.max_value = $Timer.wait_time
-			if Input.is_action_just_pressed("create_ship_5") and GameManager.metall >= 20:
-				GameManager.metall -= 20
+			if Input.is_action_just_pressed("create_ship_5") and GameManager.metall >= 40:
 				var ship5 = FRIENDSHIP5.instantiate()
 				ship5.global_position = global_position + Vector2(0, -25)
 				get_parent().add_child(ship5)
@@ -77,8 +76,8 @@ func _physics_process(delta: float) -> void:
 		$Health.value = health
 		
 		if GameManager.energy > 2:
-			GameManager.energy = 2
 			$Timer.stop()
+			GameManager.energy = 2
 		
 		move_and_slide()
 

@@ -18,7 +18,6 @@ texture = ExtResource("1_merdl")
 [node name="Timer" type="Timer" parent="." unique_id=864885964]
 wait_time = 3.0
 one_shot = true
-autostart = true
 
 [node name="Wait_for_creating" type="ProgressBar" parent="." unique_id=572096258]
 self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
@@ -41,6 +40,7 @@ show_percentage = false
 
 [node name="Get_damage" type="AudioStreamPlayer2D" parent="." unique_id=1471636004]
 stream = ExtResource("3_8b8ub")
+volume_db = -3.0
 
 [node name="Poison_timer" type="Timer" parent="." unique_id=1452912192]
 autostart = true
