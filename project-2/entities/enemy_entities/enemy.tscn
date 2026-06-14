@@ -4,10 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://bcii7njiyy30b" path="res://assets/Enemy_ship.png" id="2_b4nis"]
 [ext_resource type="AudioStream" uid="uid://b2d28srjw7u0a" path="res://assets/Megabit.ogg" id="3_emlwh"]
 [ext_resource type="Texture2D" uid="uid://i82lno1u7g7g" path="res://assets/Rust.png" id="4_oxlqt"]
+[ext_resource type="Texture2D" uid="uid://cgacr31jq8rko" path="res://assets/Krasnaja_molnija.png" id="5_s1wym"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s1wym"]
 font_size = 13
 font_color = Color(0.77254903, 0.56078434, 0.34901962, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_m5nf2"]
+font_size = 13
+font_color = Color(1, 0, 1, 1)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=784021926]
 collision_layer = 3
@@ -69,6 +74,22 @@ offset_top = -18.0
 offset_right = 47.0
 text = "0"
 label_settings = SubResource("LabelSettings_s1wym")
+
+[node name="Energy_debuff" type="Sprite2D" parent="." unique_id=1598894769]
+visible = false
+position = Vector2(37.5, 10.000001)
+scale = Vector2(0.013200001, 0.008685698)
+texture = ExtResource("5_s1wym")
+
+[node name="Debuff_value" type="Label" parent="." unique_id=1821930410]
+visible = false
+offset_left = 31.0
+offset_right = 47.0
+offset_bottom = 18.0
+text = "0"
+label_settings = SubResource("LabelSettings_m5nf2")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Poison_timer" to="." method="_on_poison_timer_timeout"]

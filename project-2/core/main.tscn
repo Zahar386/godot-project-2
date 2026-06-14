@@ -37,7 +37,6 @@ font_size = 8
 
 [sub_resource type="LabelSettings" id="LabelSettings_rayt5"]
 font_size = 4
-font_color = Color(0.49019608, 0, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jsmgm"]
 font_size = 14
@@ -177,7 +176,7 @@ offset_left = 248.0
 offset_top = 159.0
 offset_right = 258.0
 offset_bottom = 171.0
-text = "30"
+text = "40"
 label_settings = SubResource("LabelSettings_xhu5d")
 
 [node name="Metall_price_4" type="Label" parent="Walls" unique_id=278605756]
@@ -186,38 +185,47 @@ offset_left = 249.0
 offset_top = 205.0
 offset_right = 263.0
 offset_bottom = 217.0
-text = ">40"
+text = ">30"
 label_settings = SubResource("LabelSettings_xhu5d")
 
 [node name="Energy_price_1" type="Label" parent="Walls" unique_id=763436555]
-offset_left = 258.0
-offset_top = 115.0
-offset_right = 264.0
-offset_bottom = 122.0
+self_modulate = Color(0.49019608, 0, 1, 1)
+offset_left = 257.0
+offset_top = 114.0
+offset_right = 263.0
+offset_bottom = 121.0
+scale = Vector2(1.2, 1.2)
 text = "0.1"
 label_settings = SubResource("LabelSettings_rayt5")
 
 [node name="Energy_price_2" type="Label" parent="Walls" unique_id=1357223781]
-offset_left = 256.0
+self_modulate = Color(0.49019608, 0, 1, 1)
+offset_left = 257.0
 offset_top = 139.0
-offset_right = 264.0
+offset_right = 265.0
 offset_bottom = 146.0
+scale = Vector2(0.8, 0.8)
 text = "0.15"
 label_settings = SubResource("LabelSettings_rayt5")
 
 [node name="Energy_price_3" type="Label" parent="Walls" unique_id=2084457015]
-offset_left = 252.0
-offset_top = 184.0
-offset_right = 260.0
-offset_bottom = 191.0
+self_modulate = Color(0.49019608, 0, 1, 1)
+texture_filter = 4
+offset_left = 248.0
+offset_top = 180.0
+offset_right = 256.0
+offset_bottom = 187.0
+scale = Vector2(2, 2)
 text = "0.45"
 label_settings = SubResource("LabelSettings_rayt5")
 
 [node name="Energy_price_4" type="Label" parent="Walls" unique_id=1955186954]
+self_modulate = Color(0.49019608, 0, 1, 1)
 offset_left = 257.0
-offset_top = 162.0
+offset_top = 161.0
 offset_right = 263.0
-offset_bottom = 169.0
+offset_bottom = 168.0
+scale = Vector2(1.2, 1.2)
 text = "0.3"
 label_settings = SubResource("LabelSettings_rayt5")
 

@@ -9,6 +9,7 @@ func _physics_process(delta: float) -> void:
 		pl.global_position.x = 128
 		en.global_position.x = 290
 		en.level = 0
+		en.health = 50
 		GameManager.metall = 70
 		GameManager.energy = 1
 		$Music.stream_paused = true
@@ -44,14 +45,31 @@ func _physics_process(delta: float) -> void:
 			$Walls/Metall_price_2.self_modulate = Color("00ff00ff")
 		else:
 			$Walls/Metall_price_2.self_modulate = Color("ff0000ff")
-		if GameManager.metall >= 30:
+		if GameManager.metall >= 40:
 			$Walls/Metall_price_3.self_modulate = Color("00ff00ff")
 		else:
 			$Walls/Metall_price_3.self_modulate = Color("ff0000ff")
-		if GameManager.metall >= 40:
+		if GameManager.metall >= 30:
 			$Walls/Metall_price_4.self_modulate = Color("00ff00ff")
 		else:
 			$Walls/Metall_price_4.self_modulate = Color("ff0000ff")
+		
+		if 2-GameManager.energy >= 0.1:
+			$Walls/Energy_price_1.self_modulate = Color("ffff00ff")
+		else:
+			$Walls/Energy_price_1.self_modulate = Color("7d00ffff")
+		if 2-GameManager.energy >= 0.15:
+			$Walls/Energy_price_2.self_modulate = Color("ffff00ff")
+		else:
+			$Walls/Energy_price_2.self_modulate = Color("7d00ffff")
+		if 2-GameManager.energy >= 0.3:
+			$Walls/Energy_price_4.self_modulate = Color("ffff00ff")
+		else:
+			$Walls/Energy_price_4.self_modulate = Color("7d00ffff")
+		if 2-GameManager.energy >= 0.45:
+			$Walls/Energy_price_3.self_modulate = Color("ffff00ff")
+		else:
+			$Walls/Energy_price_3.self_modulate = Color("7d00ffff")
 		
 	if $Background.region_rect.position.y < 64:
 		$Background.region_rect.position.y += 0.33

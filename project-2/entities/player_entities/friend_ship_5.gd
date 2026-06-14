@@ -5,7 +5,6 @@ const SPEED = 60.0
 
 func _physics_process(delta: float) -> void:
 	if GameManager.game_situation == 1:
-		print("exist")
 		$AnimatedSprite2D.play("shoot")
 		global_position += Vector2.UP * SPEED * delta
 		if global_position.y < -20:

@@ -45,7 +45,7 @@ func _physics_process(delta: float) -> void:
 				$Wait_for_creating.value = 0
 				$Timer.start(3 * GameManager.energy)
 				$Wait_for_creating.max_value = $Timer.wait_time
-			if Input.is_action_just_pressed("create_ship_3") and GameManager.metall >= 30 and 2-GameManager.energy >= 0.29:
+			if Input.is_action_just_pressed("create_ship_3") and GameManager.metall >= 40 and 2-GameManager.energy >= 0.29:
 				GameManager.metall -= 30
 				var ship3 = FRIENDSHIP3.instantiate()
 				ship3.global_position = global_position + Vector2(0, -25)
@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 				$Wait_for_creating.value = 0
 				$Timer.start(3 * GameManager.energy)
 				$Wait_for_creating.max_value = $Timer.wait_time
-			if Input.is_action_just_pressed("create_ship_5") and GameManager.metall >= 40:
+			if Input.is_action_just_pressed("create_ship_5") and GameManager.metall >= 30:
 				var ship5 = FRIENDSHIP5.instantiate()
 				ship5.global_position = global_position + Vector2(0, -25)
 				get_parent().add_child(ship5)
@@ -75,11 +75,9 @@ func _physics_process(delta: float) -> void:
 		$Wait_for_creating.value = $Timer.wait_time - $Timer.time_left
 		$Health.value = health
 		
-		if GameManager.energy > 2:
-			$Timer.stop()
-			GameManager.energy = 2
-		
 		move_and_slide()
+	if GameManager.energy > 2:
+		GameManager.energy = 2
 
 func _on_timer_timeout() -> void:
 	can_shoot = true
