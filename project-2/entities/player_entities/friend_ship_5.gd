@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 60.0
+@onready var SPEED = 60.0
 @onready var damage = GameManager.metall
 
 func _physics_process(delta: float) -> void:
@@ -13,9 +13,17 @@ func _physics_process(delta: float) -> void:
 		if collision:
 			var collider = collision.get_collider()
 			if collider.has_method('take_damage'):
-				collider.take_damage(float(damage*0.1))
 				GameManager.energy -= float(damage*0.01)
-				GameManager.metall = 0
+				if GameManager.friend_ship_level_5 >= 1:
+					collider.take_damage(float(damage*0.1))
+				if GameManager.friend_ship_level_5 >= 3:
+					GameManager.metall -= 30
+				else:
+					GameManager.metall = 0
+				if GameManager.friend_ship_level_5 == 4:
+					if SPEED > 3:
+						collider.SPEED -= 3
+						collider.debuff += 3
 			queue_free()
 	else:
 		queue_free()

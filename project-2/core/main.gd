@@ -10,23 +10,36 @@ func _physics_process(delta: float) -> void:
 		en.global_position.x = 290
 		en.level = 0
 		en.health = 50
-		GameManager.metall = 70
-		GameManager.energy = 1
-		$Music.stream_paused = true
-		$HUD.visible = true
+		if GameManager.friend_ship_level_4 >= 3:
+			GameManager.metall = 70
+		else:
+			GameManager.metall = 50
+		if GameManager.friend_ship_level_5 >= 2:
+			GameManager.energy = 1.4
+			$Player/Timer.start(3*0.6)
+		else:
+			GameManager.energy = 1
+			$Player/Timer.start(3)
+		$HUD/Music.stream_paused = true
 		pl.visible = false
 		en.visible = false
 		$Walls.visible = false
-		$Player/Timer.start(3)
 		$Enemy/Timer.start(16)
+		$HUD/You_died.text = "Вы умерли "+str(pl.deaths)+" раз(а)"
 	elif GameManager.game_situation == 1:
-		$Music.stream_paused = false
-		$HUD.visible = false
+		$Cash/High_score.text = "High score " + str(GameManager.high_score+1) + " level"
+		if Input.is_action_just_pressed("stop_game"):
+			$HUD/Pause.visible = true
+			$HUD/Back_to_Menu.visible = true
+			$HUD/Music.stream_paused = true
+			get_tree().paused = true
+		$HUD/You_died.visible = false
 		pl.visible = true
 		en.visible = true
 		$Walls.visible = true
 		if pl.health <= 0:
 			GameManager.game_situation = 0
+		GameManager.metall = int(GameManager.metall)
 		
 		$Walls/Level.text = "Level: "+str(en.level+1)
 		$Walls/Metall.text = str(GameManager.metall)
@@ -45,32 +58,53 @@ func _physics_process(delta: float) -> void:
 			$Walls/Metall_price_2.self_modulate = Color("00ff00ff")
 		else:
 			$Walls/Metall_price_2.self_modulate = Color("ff0000ff")
-		if GameManager.metall >= 40:
-			$Walls/Metall_price_3.self_modulate = Color("00ff00ff")
-		else:
-			$Walls/Metall_price_3.self_modulate = Color("ff0000ff")
 		if GameManager.metall >= 30:
 			$Walls/Metall_price_4.self_modulate = Color("00ff00ff")
 		else:
 			$Walls/Metall_price_4.self_modulate = Color("ff0000ff")
+		if GameManager.metall >= 40:
+			$Walls/Metall_price_3.self_modulate = Color("00ff00ff")
+		else:
+			$Walls/Metall_price_3.self_modulate = Color("ff0000ff")
 		
-		if 2-GameManager.energy >= 0.1:
+		if 2-GameManager.energy >= 0.09:
 			$Walls/Energy_price_1.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_1.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy >= 0.15:
+		if 2-GameManager.energy >= 0.14:
 			$Walls/Energy_price_2.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_2.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy >= 0.3:
+		if 2-GameManager.energy >= 0.29:
 			$Walls/Energy_price_4.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_4.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy >= 0.45:
+		if 2-GameManager.energy >= 0.44:
 			$Walls/Energy_price_3.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_3.self_modulate = Color("7d00ffff")
 		
+		if GameManager.money >= (GameManager.friend_ship_level_1+1)*2:
+			$HUD/Store/LevelBar1/Price.self_modulate = Color(0.0, 1.0, 0.0, 1.0)
+		else:
+			$HUD/Store/LevelBar1/Price.self_modulate = Color(1.0, 0.0, 0.0, 1.0)
+		if GameManager.money >= (GameManager.friend_ship_level_2+1)*2:
+			$HUD/Store/LevelBar2/Price.self_modulate = Color(0.0, 1.0, 0.0, 1.0)
+		else:
+			$HUD/Store/LevelBar2/Price.self_modulate = Color(1.0, 0.0, 0.0, 1.0)
+		if GameManager.money >= (GameManager.friend_ship_level_3+1)*2:
+			$HUD/Store/LevelBar3/Price.self_modulate = Color(0.0, 1.0, 0.0, 1.0)
+		else:
+			$HUD/Store/LevelBar3/Price.self_modulate = Color(1.0, 0.0, 0.0, 1.0)
+		if GameManager.money >= (GameManager.friend_ship_level_4+1)*2:
+			$HUD/Store/LevelBar4/Price.self_modulate = Color(0.0, 1.0, 0.0, 1.0)
+		else:
+			$HUD/Store/LevelBar4/Price.self_modulate = Color(1.0, 0.0, 0.0, 1.0)
+		if GameManager.money >= (GameManager.friend_ship_level_5+1)*2:
+			$HUD/Store/LevelBar5/Price.self_modulate = Color(0.0, 1.0, 0.0, 1.0)
+		else:
+			$HUD/Store/LevelBar5/Price.self_modulate = Color(1.0, 0.0, 0.0, 1.0)
+			
 	if $Background.region_rect.position.y < 64:
 		$Background.region_rect.position.y += 0.33
 	else:

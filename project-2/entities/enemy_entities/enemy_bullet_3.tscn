@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://28y5qebduar6"]
+
+[ext_resource type="Script" uid="uid://bvgd5fd8coscp" path="res://entities/enemy_entities/enemy_bullet_3.gd" id="1_td3dn"]
+[ext_resource type="Texture2D" uid="uid://bbj3w73td8oa8" path="res://assets/bullet_1.png" id="2_f3rkk"]
+[ext_resource type="AudioStream" uid="uid://dibr1egyfbw1q" path="res://assets/Attacking2.ogg" id="3_f3rkk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_va66d"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_f3rkk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_td3dn"]
+size = Vector2(4, 8)
+
+[node name="Enemy_bullet_3" type="CharacterBody2D" unique_id=1566721740]
+scale = Vector2(1, 0.5)
+collision_layer = 3
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_td3dn")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1277033482]
+self_modulate = Color(1, 0.21568628, 0.21568628, 1)
+texture_filter = 3
+position = Vector2(-3.5762787e-07, -3.5762787e-07)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_va66d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1333026192]
+shape = SubResource("RectangleShape2D_td3dn")
+
+[node name="Give_damage" type="AudioStreamPlayer2D" parent="." unique_id=1527921544]
+stream = ExtResource("3_f3rkk")

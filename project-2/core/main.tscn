@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dppkr4e8smqfd" path="res://entities/player_entities/player.tscn" id="4_brq4u"]
 [ext_resource type="Texture2D" uid="uid://bwrw3dtpkmab7" path="res://assets/zheltaja-molnija.png" id="4_cus2n"]
 [ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="5_brq4u"]
-[ext_resource type="AudioStream" uid="uid://drjjasge2hafy" path="res://assets/240_Bits_Per_Mile_draft_2.ogg" id="5_jsmgm"]
 [ext_resource type="Texture2D" uid="uid://bm4q34pu33q6k" path="res://assets/coin.png" id="6_jsmgm"]
 [ext_resource type="Texture2D" uid="uid://c8xqscuqlnv1y" path="res://assets/gear.png" id="6_kagtj"]
 [ext_resource type="PackedScene" uid="uid://cay748du3sty4" path="res://core/hud.tscn" id="10_xhu5d"]
@@ -41,6 +40,10 @@ font_size = 4
 [sub_resource type="LabelSettings" id="LabelSettings_jsmgm"]
 font_size = 14
 font_color = Color(0.7647059, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_510js"]
+font_size = 6
+font_color = Color(0.09411765, 0.07450981, 0.15686275, 1)
 
 [node name="Main" type="Node2D" unique_id=972571192]
 script = ExtResource("1_xa854")
@@ -232,7 +235,7 @@ label_settings = SubResource("LabelSettings_rayt5")
 [node name="Cash" type="ColorRect" parent="." unique_id=1687796621]
 offset_top = 134.0
 offset_right = 16.0
-offset_bottom = 174.0
+offset_bottom = 224.0
 color = Color(0.23529412, 0.23529412, 1, 1)
 
 [node name="Coin" type="Sprite2D" parent="Cash" unique_id=1998727399]
@@ -250,16 +253,21 @@ label_settings = SubResource("LabelSettings_jsmgm")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="High_score" type="Label" parent="Cash" unique_id=287785046]
+layout_mode = 0
+offset_top = 39.0
+offset_right = 16.0
+offset_bottom = 89.0
+text = "High score 0 level"
+label_settings = SubResource("LabelSettings_510js")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
 [node name="Enemy" parent="." unique_id=784021926 instance=ExtResource("3_cus2n")]
 position = Vector2(290, 24)
 
 [node name="Player" parent="." unique_id=699583065 instance=ExtResource("4_brq4u")]
 position = Vector2(128, 240)
-
-[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1054466682]
-stream = ExtResource("5_jsmgm")
-volume_db = -5.0
-autoplay = true
-parameters/looping = true
 
 [node name="HUD" parent="." unique_id=1514296125 instance=ExtResource("10_xhu5d")]

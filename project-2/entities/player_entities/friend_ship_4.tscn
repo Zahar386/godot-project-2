@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b8di86lch6rxf" path="res://entities/player_entities/friend_ship_4.gd" id="1_ccq4j"]
 [ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="1_h8w7y"]
 [ext_resource type="AudioStream" uid="uid://clcsycbct7b8u" path="res://assets/gamingsins-ding-sonic-ring.mp3" id="3_d0cu7"]
+[ext_resource type="AudioStream" uid="uid://dibr1egyfbw1q" path="res://assets/Attacking2.ogg" id="4_1agwy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg502"]
 atlas = ExtResource("1_h8w7y")
@@ -27,11 +28,11 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gbily"]
-size = Vector2(18, 1)
+size = Vector2(20, 7)
 
 [node name="Friend_Ship_4" type="CharacterBody2D" unique_id=1234138077]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_ccq4j")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1720315748]
@@ -43,11 +44,11 @@ animation = &"shoot"
 frame_progress = 0.6598123
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389308610]
-position = Vector2(0, -6.5)
+position = Vector2(0, -3.5)
 shape = SubResource("RectangleShape2D_gbily")
 
 [node name="Timer" type="Timer" parent="." unique_id=918810731]
-wait_time = 1.5
+wait_time = 2.0
 autostart = true
 
 [node name="Health" type="ProgressBar" parent="." unique_id=477006458]
@@ -57,7 +58,7 @@ offset_top = 7.0
 offset_right = 14.0
 offset_bottom = 27.0
 rotation = 1.5707964
-max_value = 20.0
+max_value = 10.0
 fill_mode = 3
 show_percentage = false
 
@@ -65,14 +66,17 @@ show_percentage = false
 stream = ExtResource("3_d0cu7")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1449892193]
-offset_left = -9.0
+offset_left = -10.0
 offset_top = -7.0
-offset_right = 9.0
+offset_right = 10.0
 offset_bottom = -6.0
 color = Color(0.18431373, 0.23921569, 0.27450982, 1)
 
 [node name="Poison_timer" type="Timer" parent="." unique_id=830216050]
 autostart = true
+
+[node name="Get_damage" type="AudioStreamPlayer2D" parent="." unique_id=592566935]
+stream = ExtResource("4_1agwy")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Poison_timer" to="." method="_on_poison_timer_timeout"]

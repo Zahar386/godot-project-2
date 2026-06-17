@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dc04mrl5onxqk" path="res://entities/player_entities/friend_ship_5.gd" id="1_jqass"]
 [ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="2_r2oqh"]
-[ext_resource type="AudioStream" uid="uid://clcsycbct7b8u" path="res://assets/gamingsins-ding-sonic-ring.mp3" id="3_jokpo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg502"]
 atlas = ExtResource("2_r2oqh")
@@ -30,22 +29,19 @@ animations = [{
 size = Vector2(8, 14)
 
 [node name="Friend_Ship_5" type="CharacterBody2D" unique_id=1234138077]
-collision_layer = 2
-collision_mask = 2
+collision_layer = 4
+collision_mask = 4
 script = ExtResource("1_jqass")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1720315748]
 self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
 texture_filter = 3
 position = Vector2(4.7683716e-07, 0)
-rotation = 3.1415927
 scale = Vector2(0.5, 1)
 sprite_frames = SubResource("SpriteFrames_n6ugi")
 animation = &"shoot"
-frame_progress = 0.4212042
+frame = 1
+frame_progress = 0.69898087
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1389308610]
 shape = SubResource("RectangleShape2D_gbily")
-
-[node name="Shoot_sound" type="AudioStreamPlayer2D" parent="." unique_id=838139649]
-stream = ExtResource("3_jokpo")

@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://b2d28srjw7u0a" path="res://assets/Megabit.ogg" id="3_emlwh"]
 [ext_resource type="Texture2D" uid="uid://i82lno1u7g7g" path="res://assets/Rust.png" id="4_oxlqt"]
 [ext_resource type="Texture2D" uid="uid://cgacr31jq8rko" path="res://assets/Krasnaja_molnija.png" id="5_s1wym"]
+[ext_resource type="Texture2D" uid="uid://cemiuh4o3yabi" path="res://assets/heal.png" id="6_m5nf2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_s1wym"]
 font_size = 13
@@ -13,10 +14,12 @@ font_color = Color(0.77254903, 0.56078434, 0.34901962, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_m5nf2"]
 font_size = 13
 font_color = Color(1, 0, 1, 1)
+outline_size = 2
+outline_color = Color(0.47058824, 0, 1, 1)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=784021926]
-collision_layer = 3
-collision_mask = 3
+collision_layer = 7
+collision_mask = 7
 script = ExtResource("1_pqhw6")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1185803421]
@@ -45,7 +48,7 @@ offset_left = 27.0
 offset_top = -19.0
 offset_right = 31.0
 offset_bottom = 19.0
-max_value = 15.0
+max_value = 16.0
 fill_mode = 3
 show_percentage = false
 
@@ -55,7 +58,9 @@ autostart = true
 
 [node name="Sound_effects" type="AudioStreamPlayer2D" parent="." unique_id=524988035]
 stream = ExtResource("3_emlwh")
-volume_db = -13.0
+volume_db = -2.0
+max_polyphony = 10
+playback_type = 1
 
 [node name="Poison_timer" type="Timer" parent="." unique_id=1575778475]
 autostart = true
@@ -90,6 +95,12 @@ text = "0"
 label_settings = SubResource("LabelSettings_m5nf2")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Heal" type="Sprite2D" parent="." unique_id=826005074]
+visible = false
+position = Vector2(-41, -9.000002)
+scale = Vector2(0.008333334, 0.008333334)
+texture = ExtResource("6_m5nf2")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Poison_timer" to="." method="_on_poison_timer_timeout"]

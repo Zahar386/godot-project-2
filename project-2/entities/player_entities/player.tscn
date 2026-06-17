@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clmgb8ucajsmq" path="res://entities/player_entities/player.gd" id="1_b0kkn"]
 [ext_resource type="Texture2D" uid="uid://cdx74i82lwofg" path="res://assets/space_ship.png" id="1_merdl"]
-[ext_resource type="AudioStream" uid="uid://uf3rykvdwu2b" path="res://assets/fnaf-world-death-sound-made-with-Voicemod.mp3" id="3_8b8ub"]
+[ext_resource type="AudioStream" uid="uid://b2d28srjw7u0a" path="res://assets/Megabit.ogg" id="3_8b8ub"]
 
 [node name="Player" type="CharacterBody2D" unique_id=699583065]
 motion_mode = 1
@@ -40,7 +40,7 @@ show_percentage = false
 
 [node name="Get_damage" type="AudioStreamPlayer2D" parent="." unique_id=1471636004]
 stream = ExtResource("3_8b8ub")
-volume_db = -3.0
+volume_db = 5.0
 
 [node name="Poison_timer" type="Timer" parent="." unique_id=1452912192]
 autostart = true

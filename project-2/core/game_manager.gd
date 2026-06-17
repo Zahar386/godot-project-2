@@ -9,4 +9,4 @@ extends Node
 @onready var friend_ship_level_3=0
 @onready var friend_ship_level_4=0
 @onready var friend_ship_level_5=0
-@onready var deaths = 0
+@onready var high_score = 0

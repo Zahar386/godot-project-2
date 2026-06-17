@@ -15,9 +15,14 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iaqys"]
-size = Vector2(4, 6)
+size = Vector2(1.5, 3)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_la8mc"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
 
 [node name="Enemy_bullet_1" type="CharacterBody2D" unique_id=1566721740]
+scale = Vector2(2, 2)
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_la8mc")
@@ -30,4 +35,15 @@ scale = Vector2(1.4999999, 1.4999999)
 sprite_frames = SubResource("SpriteFrames_va66d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1118827362]
+scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_iaqys")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=937893336]
+self_modulate = Color(1, 0.39215687, 1, 1)
+texture_filter = 3
+rotation = 3.1415927
+scale = Vector2(0.6, 0.6)
+amount = 6
+texture = ExtResource("2_62pw6")
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_la8mc")

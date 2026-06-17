@@ -14,7 +14,7 @@ motion_mode = 1
 script = ExtResource("1_8f075")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1069263014]
-self_modulate = Color(0.21568628, 0.21568628, 1, 1)
+self_modulate = Color(0.60784316, 0.60784316, 1, 1)
 texture_filter = 3
 texture = ExtResource("2_cj2k1")
 

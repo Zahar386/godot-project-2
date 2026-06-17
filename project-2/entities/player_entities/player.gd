@@ -10,8 +10,13 @@ const FRIENDSHIP5 = preload("res://entities/player_entities/friend_ship_5.tscn")
 @onready var can_shoot = false
 @onready var health = 100
 @onready var poison_value = 0
+@onready var deaths = 0
 
 func _physics_process(delta: float) -> void:
+	global_position.y = 240
+	if GameManager.game_situation == 0:
+		$Timer.start(3)
+		$Wait_for_creating.max_value = 3
 	if GameManager.game_situation == 1:
 		if poison_value > 0:
 			$Health.self_modulate = Color("00ff00ff")
@@ -46,7 +51,7 @@ func _physics_process(delta: float) -> void:
 				$Timer.start(3 * GameManager.energy)
 				$Wait_for_creating.max_value = $Timer.wait_time
 			if Input.is_action_just_pressed("create_ship_3") and GameManager.metall >= 40 and 2-GameManager.energy >= 0.29:
-				GameManager.metall -= 30
+				GameManager.metall -= 40
 				var ship3 = FRIENDSHIP3.instantiate()
 				ship3.global_position = global_position + Vector2(0, -25)
 				get_parent().add_child(ship3)
@@ -76,21 +81,25 @@ func _physics_process(delta: float) -> void:
 		$Health.value = health
 		
 		move_and_slide()
-	if GameManager.energy > 2:
-		GameManager.energy = 2
+	if GameManager.energy >= 2:
+		GameManager.energy = 1.99
 
 func _on_timer_timeout() -> void:
 	can_shoot = true
 	GameManager.metall += 1
-	GameManager.energy += 0.01
+	GameManager.energy -= 0.01
 
 func take_damage(damage):
 	health -= damage
 	$Get_damage.play()
+	GameManager.metall += round(damage/2)
 	if health <= 0:
-		pass
+		deaths += 1
 
 func _on_poison_timer_timeout() -> void:
-	if poison_value > 0:
-		take_damage(1)
-		poison_value -= 1
+	if GameManager.game_situation == 1:
+		if health < 100:
+			health += 0.1
+		if poison_value > 0:
+			take_damage(1)
+			poison_value -= 1.1

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://xnsbqi15byp0" path="res://entities/player_entities/friend_ship_1.gd" id="1_a2hdi"]
 [ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="2_a2hdi"]
 [ext_resource type="AudioStream" uid="uid://b2d28srjw7u0a" path="res://assets/Megabit.ogg" id="3_ife6n"]
+[ext_resource type="AudioStream" uid="uid://dibr1egyfbw1q" path="res://assets/Attacking2.ogg" id="4_ocn4a"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gg502"]
 atlas = ExtResource("2_a2hdi")
@@ -67,6 +68,9 @@ shape = SubResource("RectangleShape2D_ife6n")
 
 [node name="Poison_timer" type="Timer" parent="." unique_id=498648108]
 autostart = true
+
+[node name="Get_damage" type="AudioStreamPlayer2D" parent="." unique_id=1540563675]
+stream = ExtResource("4_ocn4a")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Poison_timer" to="." method="_on_poison_timer_timeout"]

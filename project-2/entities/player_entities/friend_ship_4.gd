@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @onready var SPEED = 5
-@onready var health = 20
+@onready var health = 10
 @onready var direction = Vector2.RIGHT
 @onready var poison_value = 0
 
@@ -11,6 +11,12 @@ func _ready() -> void:
 		direction = Vector2.LEFT
 	else:
 		direction = Vector2.RIGHT
+	
+	if GameManager.friend_ship_level_4 >= 1:
+		health += 10
+		$Health.max_value = 20
+	if GameManager.friend_ship_level_4 == 4:
+		$Timer.start(1)
 
 func _physics_process(delta: float) -> void:
 	if GameManager.game_situation == 1:
@@ -45,12 +51,17 @@ func _on_timer_timeout() -> void:
 func take_damage(damage):
 	health -= damage
 	GameManager.metall += round(damage/2)
+	$Get_damage.play()
 	if health <= 0:
 		queue_free()
 
 func give_metall():
 	if GameManager.metall < 99:
+		if GameManager.friend_ship_level_4 >= 2:
+			GameManager.metall += 1
 		GameManager.metall += 1
+	else:
+		GameManager.metall = 99
 
 func _on_poison_timer_timeout() -> void:
 	if poison_value > 0:

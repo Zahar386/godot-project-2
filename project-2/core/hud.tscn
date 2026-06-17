@@ -2,8 +2,104 @@
 
 [ext_resource type="Script" uid="uid://tgcr0uexlu0h" path="res://core/hud.gd" id="1_rn0xv"]
 [ext_resource type="Texture2D" uid="uid://ba7uypn7qp66w" path="res://assets/friend_ship_1.png" id="2_a8e1d"]
+[ext_resource type="Texture2D" uid="uid://bm4q34pu33q6k" path="res://assets/coin.png" id="3_l3ow8"]
+[ext_resource type="Texture2D" uid="uid://bcii7njiyy30b" path="res://assets/Enemy_ship.png" id="4_whbmk"]
+[ext_resource type="Texture2D" uid="uid://c8xqscuqlnv1y" path="res://assets/gear.png" id="5_qqf8p"]
+[ext_resource type="Texture2D" uid="uid://bwrw3dtpkmab7" path="res://assets/zheltaja-molnija.png" id="6_eclha"]
+[ext_resource type="Texture2D" uid="uid://cdx74i82lwofg" path="res://assets/space_ship.png" id="6_vjwwo"]
+[ext_resource type="AudioStream" uid="uid://drjjasge2hafy" path="res://assets/240_Bits_Per_Mile_draft_2.ogg" id="8_vjwwo"]
+[ext_resource type="AudioStream" uid="uid://crugpp7pqdj6m" path="res://assets/b434b29f55e0bd8.mp3" id="9_d1q6q"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_71itg"]
+font_size = 24
+font_color = Color(0.60784316, 0, 1, 1)
+outline_size = 2
+outline_color = Color(0.39215687, 0, 1, 1)
+shadow_size = 4
+shadow_color = Color(0.21568628, 0, 0.60784316, 1)
+shadow_offset = Vector2(3, 3)
+
+[sub_resource type="LabelSettings" id="LabelSettings_sg6ee"]
+font_size = 9
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qqf8p"]
+atlas = ExtResource("2_a8e1d")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="LabelSettings" id="LabelSettings_eclha"]
+font_size = 7
+
+[sub_resource type="LabelSettings" id="LabelSettings_qqf8p"]
+font_size = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_wwirt"]
+line_spacing = 1.0
+font_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_vjwwo"]
+font_size = 5
+
+[sub_resource type="LabelSettings" id="LabelSettings_xqee1"]
+font_size = 6
+
+[sub_resource type="LabelSettings" id="LabelSettings_jpvy7"]
+font_size = 8
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="FontFile" id="FontFile_l3ow8"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/3/0/ascent = 0.0
+cache/0/3/0/descent = 0.0
+cache/0/3/0/underline_position = 0.0
+cache/0/3/0/underline_thickness = 0.0
+cache/0/3/0/scale = 1.0
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/5/0/ascent = 0.0
+cache/0/5/0/descent = 0.0
+cache/0/5/0/underline_position = 0.0
+cache/0/5/0/underline_thickness = 0.0
+cache/0/5/0/scale = 1.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_a8e1d"]
+line_spacing = 2.0
+font = SubResource("FontFile_l3ow8")
+font_size = 3
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_f4txf"]
+line_spacing = 2.0
+font = SubResource("FontFile_l3ow8")
+font_size = 3
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3ow8"]
+atlas = ExtResource("2_a8e1d")
+region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="FontFile" id="FontFile_a8e1d"]
+subpixel_positioning = 0
+msdf_pixel_range = 14
+msdf_size = 128
 cache/0/variation_coordinates = {}
 cache/0/face_index = 0
 cache/0/embolden = 0.0
@@ -33,21 +129,22 @@ cache/0/4/0/descent = 0.0
 cache/0/4/0/underline_position = 0.0
 cache/0/4/0/underline_thickness = 0.0
 cache/0/4/0/scale = 1.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_a8e1d"]
-line_spacing = 2.0
-font = SubResource("FontFile_a8e1d")
-font_size = 3
-font_color = Color(1, 0, 0, 1)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_l3ow8"]
-atlas = ExtResource("2_a8e1d")
-region = Rect2(0, 0, 16, 16)
+cache/0/5/0/ascent = 0.0
+cache/0/5/0/descent = 0.0
+cache/0/5/0/underline_position = 0.0
+cache/0/5/0/underline_thickness = 0.0
+cache/0/5/0/scale = 1.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_l3ow8"]
 line_spacing = 2.0
 font = SubResource("FontFile_a8e1d")
-font_size = 3
+font_size = 4
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_vorrv"]
+line_spacing = 2.0
+font = SubResource("FontFile_a8e1d")
+font_size = 4
 font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_whbmk"]
@@ -56,24 +153,278 @@ font = SubResource("FontFile_a8e1d")
 font_size = 4
 font_color = Color(1, 0, 0, 1)
 
-[sub_resource type="LabelSettings" id="LabelSettings_71itg"]
+[sub_resource type="LabelSettings" id="LabelSettings_ox2x5"]
+line_spacing = 2.0
+font = SubResource("FontFile_a8e1d")
+font_size = 3
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_c1tuc"]
+line_spacing = 2.0
+font = SubResource("FontFile_a8e1d")
+font_size = 3
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p2v1g"]
+line_spacing = 2.0
+font = SubResource("FontFile_a8e1d")
+font_size = 4
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_q20w1"]
+line_spacing = 2.0
+font = SubResource("FontFile_l3ow8")
+font_size = 4
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8d7ff"]
+line_spacing = 2.0
+font = SubResource("FontFile_l3ow8")
+font_size = 5
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lrohy"]
+line_spacing = 2.0
+font = SubResource("FontFile_l3ow8")
+font_size = 4
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ndcp4"]
+line_spacing = 2.0
+font = SubResource("FontFile_l3ow8")
+font_size = 5
+font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_d1q6q"]
 font_size = 24
-font_color = Color(0.60784316, 0, 1, 1)
+font_color = Color(1, 0.60784316, 0, 1)
 outline_size = 2
 outline_color = Color(0.39215687, 0, 1, 1)
 shadow_size = 4
-shadow_color = Color(0.21568628, 0, 0.60784316, 1)
+shadow_color = Color(1, 0.21568628, 0, 1)
 shadow_offset = Vector2(3, 3)
 
 [node name="HUD" type="CanvasLayer" unique_id=1514296125]
 script = ExtResource("1_rn0xv")
 
+[node name="You_died" type="Label" parent="." unique_id=1113361844]
+offset_right = 154.0
+offset_bottom = 23.0
+text = "Вы умерли 0 раз(а)"
+
+[node name="Name" type="Label" parent="." unique_id=1413981074]
+visible = false
+offset_left = 35.0
+offset_top = 77.0
+offset_right = 223.0
+offset_bottom = 111.0
+text = "Space engineers"
+label_settings = SubResource("LabelSettings_71itg")
+
+[node name="Go_to_Store" type="Button" parent="Name" unique_id=566392120]
+self_modulate = Color(0, 0, 1, 1)
+layout_mode = 0
+offset_left = 68.0
+offset_top = 68.0
+offset_right = 118.0
+offset_bottom = 100.0
+text = "Store"
+
+[node name="Go_to_Manual" type="Button" parent="Name" unique_id=194199803]
+self_modulate = Color(1, 1, 0, 1)
+layout_mode = 0
+offset_left = 59.5
+offset_top = 101.0
+offset_right = 126.5
+offset_bottom = 132.0
+text = "Manual"
+
+[node name="Start" type="Button" parent="Name" unique_id=805972199]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 70.0
+offset_top = 36.0
+offset_right = 116.0
+offset_bottom = 67.0
+text = "Start"
+
+[node name="Manual" type="ColorRect" parent="." unique_id=1746950282]
+visible = false
+offset_top = 23.0
+offset_right = 256.0
+offset_bottom = 227.0
+color = Color(0.47058824, 0, 0.47058824, 1)
+
+[node name="EnemyShip" type="Sprite2D" parent="Manual" unique_id=1396645992]
+position = Vector2(23.000004, 26)
+scale = Vector2(0.08538461, 0.08538461)
+texture = ExtResource("4_whbmk")
+
+[node name="Describe_1" type="Label" parent="Manual" unique_id=1608660814]
+layout_mode = 0
+offset_left = 46.0
+offset_right = 259.0
+offset_bottom = 45.0
+text = "Это враг. Он может получать урон от пуль ва-ших кораблей. После смерти он появляется с увеличенными здоровьем и скоростью"
+label_settings = SubResource("LabelSettings_sg6ee")
+autowrap_mode = 3
+
+[node name="Friend_1" type="Sprite2D" parent="Manual" unique_id=235412392]
+self_modulate = Color(0, 0, 1, 1)
+texture_filter = 3
+position = Vector2(11, 55)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_qqf8p")
+
+[node name="Friend_2" type="Sprite2D" parent="Manual" unique_id=1316586869]
+self_modulate = Color(0, 1, 0, 1)
+texture_filter = 3
+position = Vector2(11, 83)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_qqf8p")
+
+[node name="Friend_3" type="Sprite2D" parent="Manual" unique_id=1765177816]
+self_modulate = Color(1, 0, 0, 1)
+texture_filter = 3
+position = Vector2(11, 109)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_qqf8p")
+
+[node name="Friend_4" type="Sprite2D" parent="Manual" unique_id=1427478587]
+self_modulate = Color(0.21568628, 0.21568628, 0.21568628, 1)
+texture_filter = 3
+position = Vector2(11, 137)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_qqf8p")
+
+[node name="Friend_5" type="Sprite2D" parent="Manual" unique_id=166146670]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+texture_filter = 3
+position = Vector2(11, 165.00002)
+scale = Vector2(1.5, 1.5)
+texture = SubResource("AtlasTexture_qqf8p")
+
+[node name="Describe_2" type="Label" parent="Manual" unique_id=1456260296]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 46.0
+offset_right = 256.0
+offset_bottom = 71.0
+text = "Это синий корабль. Он стреляет синими снарядами с средним уроном, которые восстанавливают энергию"
+label_settings = SubResource("LabelSettings_eclha")
+autowrap_mode = 3
+
+[node name="Describe_3" type="Label" parent="Manual" unique_id=292729852]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 73.0
+offset_right = 267.0
+offset_bottom = 98.0
+text = "Это зелёный корабль. Он стреляет зелёными пулями с эффектом яда. Однако он не даёт металл при получении урона или смерти"
+label_settings = SubResource("LabelSettings_eclha")
+autowrap_mode = 3
+
+[node name="Describe_4" type="Label" parent="Manual" unique_id=793018820]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 100.0
+offset_right = 268.0
+offset_bottom = 125.0
+text = "Это красный корабль. Он стреляет множественными слабыми пулями, которые замедляют врага. Тратит металл за выстрел!!"
+label_settings = SubResource("LabelSettings_eclha")
+autowrap_mode = 3
+
+[node name="Describe_5" type="Label" parent="Manual" unique_id=1683289229]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 129.0
+offset_right = 256.0
+offset_bottom = 154.0
+text = "Это серый корабль. Он не наносит урона, а генерирует металл и летает влево-вправо. Можно (и нужно) использовать как щит"
+label_settings = SubResource("LabelSettings_eclha")
+autowrap_mode = 3
+
+[node name="Describe_6" type="Label" parent="Manual" unique_id=1114556041]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 156.0
+offset_right = 258.0
+offset_bottom = 189.0
+text = "Это белая ракета. При попадании в кого-нибудь восстанавливает энергию в зависимости от металла (после аннулируя его). Не трати металл при появл."
+label_settings = SubResource("LabelSettings_qqf8p")
+autowrap_mode = 3
+
+[node name="Describe_7" type="Label" parent="Manual" unique_id=1294417078]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 177.0
+offset_right = 118.0
+offset_bottom = 203.0
+text = "Металл - основной ресурс для созда-ния кораблей. Его можно получить при получении урона корабляям"
+label_settings = SubResource("LabelSettings_wwirt")
+autowrap_mode = 3
+
+[node name="Describe_8" type="Label" parent="Manual" unique_id=1085010384]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 182.0
+offset_right = 255.0
+offset_bottom = 201.0
+text = "Энергия также нужна для постройки кораблей, но ещё и влияет на скорость их появления"
+label_settings = SubResource("LabelSettings_vjwwo")
+autowrap_mode = 3
+
+[node name="Gear" type="Sprite2D" parent="Manual" unique_id=1694124315]
+position = Vector2(12.007598, 192.99239)
+rotation = 3.1415927
+scale = Vector2(0.022876553, 0.022876553)
+texture = ExtResource("5_qqf8p")
+
+[node name="ZheltajaMolnija" type="Sprite2D" parent="Manual" unique_id=2112617972]
+position = Vector2(121.25, 190.75)
+scale = Vector2(0.0063750017, 0.0063750017)
+texture = ExtResource("6_eclha")
+
+[node name="Manual2" type="ColorRect" parent="Manual" unique_id=11974756]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 204.0
+offset_right = 225.0
+offset_bottom = 233.0
+color = Color(0.47058824, 0, 0.47058824, 1)
+
+[node name="Describe_9" type="Label" parent="Manual" unique_id=1554863847]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 202.0
+offset_right = 225.0
+offset_bottom = 225.0
+text = "Перемещение корабля на стрелки вправо и влево.
+Создание кораблей на клавиши цифр от \"1\" до \"5\""
+label_settings = SubResource("LabelSettings_xqee1")
+
+[node name="SpaceShip" type="Sprite2D" parent="Manual" unique_id=1726293596]
+texture_filter = 3
+position = Vector2(57.5, 212.5)
+scale = Vector2(0.7291666, 0.7291666)
+texture = ExtResource("6_vjwwo")
+
+[node name="Describe_10" type="Label" parent="Manual" unique_id=1370931778]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 221.0
+offset_right = 225.0
+offset_bottom = 244.0
+text = "Остороржно! В этой игре нет сохранений!"
+label_settings = SubResource("LabelSettings_jpvy7")
+autowrap_mode = 3
+
 [node name="Store" type="ColorRect" parent="." unique_id=511048845]
 visible = false
 offset_left = 16.0
-offset_top = 23.0
+offset_top = 22.0
 offset_right = 256.0
-offset_bottom = 228.0
+offset_bottom = 227.0
 color = Color(0.78431374, 0.60784316, 0.21568628, 1)
 
 [node name="Store2" type="ColorRect" parent="Store" unique_id=2072420366]
@@ -83,6 +434,391 @@ offset_top = 205.0
 offset_right = 240.0
 offset_bottom = 223.0
 color = Color(0.78431374, 0.60784316, 0.21568628, 1)
+
+[node name="LevelBar1" type="ProgressBar" parent="Store" unique_id=556351581]
+self_modulate = Color(0, 0, 18.892157, 1)
+layout_mode = 0
+offset_left = 30.0
+offset_right = 222.0
+offset_bottom = 27.0
+max_value = 4.0
+show_percentage = false
+
+[node name="Power1" type="Label" parent="Store/LevelBar1" unique_id=1857416067]
+texture_filter = 3
+layout_mode = 0
+offset_left = 4.0
+offset_top = 26.0
+offset_right = 47.0
+offset_bottom = 45.0
+text = "Каждый выстрел будет оттал-кивать корабль назад, что поз-волит нанести больше пуль"
+label_settings = SubResource("LabelSettings_a8e1d")
+autowrap_mode = 3
+
+[node name="Power2" type="Label" parent="Store/LevelBar1" unique_id=1410363415]
+texture_filter = 3
+layout_mode = 0
+offset_left = 51.0
+offset_top = 26.0
+offset_right = 94.0
+offset_bottom = 45.0
+text = "Каждый выстрел будет вос-станавливать в 2 раза больше энергии"
+label_settings = SubResource("LabelSettings_a8e1d")
+autowrap_mode = 3
+
+[node name="Power3" type="Label" parent="Store/LevelBar1" unique_id=837893909]
+texture_filter = 3
+layout_mode = 0
+offset_left = 145.0
+offset_top = 26.0
+offset_right = 188.0
+offset_bottom = 45.0
+text = "Каждый выстрел отравляет врага на 1 секунду"
+label_settings = SubResource("LabelSettings_f4txf")
+autowrap_mode = 3
+
+[node name="Power4" type="Label" parent="Store/LevelBar1" unique_id=708534903]
+texture_filter = 3
+layout_mode = 0
+offset_left = 98.0
+offset_top = 26.0
+offset_right = 141.0
+offset_bottom = 45.0
+text = "Снижает скорость корабля, что позволяет нанести больше выстрелов"
+label_settings = SubResource("LabelSettings_f4txf")
+autowrap_mode = 3
+
+[node name="Friend_1" type="Sprite2D" parent="Store/LevelBar1" unique_id=1085541142]
+self_modulate = Color(0, 0, 1, 1)
+texture_filter = 3
+position = Vector2(-15, 15)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_l3ow8")
+
+[node name="Upgrade1" type="Button" parent="Store/LevelBar1" unique_id=86689552]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 8028.0
+offset_bottom = 8008.0
+scale = Vector2(0.002, 0.002)
+icon = ExtResource("3_l3ow8")
+
+[node name="Price" type="Label" parent="Store/LevelBar1" unique_id=1883604769]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 195.0
+offset_top = -4.0
+offset_right = 205.0
+offset_bottom = 19.0
+text = "1"
+
+[node name="LevelBar2" type="ProgressBar" parent="Store" unique_id=1375895455]
+self_modulate = Color(0, 18.892157, 0, 1)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 45.0
+offset_right = 222.0
+offset_bottom = 72.0
+max_value = 4.0
+show_percentage = false
+
+[node name="Friend_2" type="Sprite2D" parent="Store/LevelBar2" unique_id=451692251]
+self_modulate = Color(0, 1, 0, 1)
+texture_filter = 3
+position = Vector2(-15, 14)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_l3ow8")
+
+[node name="Upgrade2" type="Button" parent="Store/LevelBar2" unique_id=838665038]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 8028.0
+offset_bottom = 8008.0
+scale = Vector2(0.002, 0.002)
+icon = ExtResource("3_l3ow8")
+
+[node name="Price" type="Label" parent="Store/LevelBar2" unique_id=1655595139]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 195.0
+offset_top = -4.0
+offset_right = 205.0
+offset_bottom = 19.0
+text = "1"
+
+[node name="Power1" type="Label" parent="Store/LevelBar2" unique_id=2127704274]
+texture_filter = 3
+layout_mode = 0
+offset_left = 4.0
+offset_top = 26.0
+offset_right = 47.0
+offset_bottom = 48.0
+text = "Каждый выстрел нано-сит в 2 раза больше ур."
+label_settings = SubResource("LabelSettings_l3ow8")
+autowrap_mode = 3
+
+[node name="Power2" type="Label" parent="Store/LevelBar2" unique_id=560762876]
+texture_filter = 3
+layout_mode = 0
+offset_left = 51.0
+offset_top = 26.0
+offset_right = 98.0
+offset_bottom = 48.0
+text = "Продлевает отравление от выстрелов в 1.5 раза"
+label_settings = SubResource("LabelSettings_l3ow8")
+autowrap_mode = 3
+
+[node name="Power3" type="Label" parent="Store/LevelBar2" unique_id=74073551]
+texture_filter = 3
+layout_mode = 0
+offset_left = 98.0
+offset_top = 26.0
+offset_right = 141.0
+offset_bottom = 38.0
+text = "Увеличивает скоростр. корабля в 2 раза"
+label_settings = SubResource("LabelSettings_vorrv")
+autowrap_mode = 3
+
+[node name="Power4" type="Label" parent="Store/LevelBar2" unique_id=211157186]
+texture_filter = 3
+layout_mode = 0
+offset_left = 145.0
+offset_top = 26.0
+offset_right = 188.0
+offset_bottom = 48.0
+text = "Каждый выстрел даёт 1 единицу металла"
+label_settings = SubResource("LabelSettings_l3ow8")
+autowrap_mode = 3
+
+[node name="LevelBar3" type="ProgressBar" parent="Store" unique_id=2102509402]
+self_modulate = Color(18.892157, 0, 0, 1)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 89.0
+offset_right = 222.0
+offset_bottom = 116.0
+max_value = 4.0
+show_percentage = false
+
+[node name="Friend_3" type="Sprite2D" parent="Store/LevelBar3" unique_id=1652019714]
+self_modulate = Color(1, 0, 0, 1)
+texture_filter = 3
+position = Vector2(-15, 14)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_l3ow8")
+
+[node name="Upgrade3" type="Button" parent="Store/LevelBar3" unique_id=1517941578]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 8028.0
+offset_bottom = 8008.0
+scale = Vector2(0.002, 0.002)
+icon = ExtResource("3_l3ow8")
+
+[node name="Price" type="Label" parent="Store/LevelBar3" unique_id=948009134]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 195.0
+offset_top = -4.0
+offset_right = 205.0
+offset_bottom = 19.0
+text = "1"
+
+[node name="Power1" type="Label" parent="Store/LevelBar3" unique_id=1722443166]
+texture_filter = 3
+layout_mode = 0
+offset_left = 4.0
+offset_top = 26.0
+offset_right = 48.0
+offset_bottom = 44.0
+text = "Повышает урон от пуль в 2 раза"
+label_settings = SubResource("LabelSettings_whbmk")
+autowrap_mode = 3
+
+[node name="Power2" type="Label" parent="Store/LevelBar3" unique_id=850525768]
+texture_filter = 3
+layout_mode = 0
+offset_left = 51.0
+offset_top = 26.0
+offset_right = 94.0
+offset_bottom = 44.0
+text = "Повышает замедление от пуль и здоровье корабля в 2 раза"
+label_settings = SubResource("LabelSettings_ox2x5")
+autowrap_mode = 3
+
+[node name="Power3" type="Label" parent="Store/LevelBar3" unique_id=1417075117]
+texture_filter = 3
+layout_mode = 0
+offset_left = 98.0
+offset_top = 26.0
+offset_right = 141.0
+offset_bottom = 44.0
+text = "Уменьшает скорость  в 2 раза, что позволяет нанести больше выстрелов"
+label_settings = SubResource("LabelSettings_c1tuc")
+autowrap_mode = 3
+
+[node name="Power4" type="Label" parent="Store/LevelBar3" unique_id=1111630438]
+texture_filter = 3
+layout_mode = 0
+offset_left = 145.0
+offset_top = 26.0
+offset_right = 189.0
+offset_bottom = 45.0
+text = "Увеличивает количе-ство пуль в 2 раза"
+label_settings = SubResource("LabelSettings_p2v1g")
+autowrap_mode = 3
+
+[node name="LevelBar4" type="ProgressBar" parent="Store" unique_id=1860893428]
+self_modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 133.0
+offset_right = 222.0
+offset_bottom = 160.0
+max_value = 4.0
+show_percentage = false
+
+[node name="Power1" type="Label" parent="Store/LevelBar4" unique_id=1253163018]
+texture_filter = 3
+layout_mode = 0
+offset_left = 4.0
+offset_top = 25.0
+offset_right = 46.0
+offset_bottom = 44.0
+text = "Корабль получает в 2 раза меньше ур.(а также способен пережить роз. снаряды)"
+label_settings = SubResource("LabelSettings_a8e1d")
+autowrap_mode = 3
+
+[node name="Power2" type="Label" parent="Store/LevelBar4" unique_id=1533646147]
+texture_filter = 3
+layout_mode = 0
+offset_left = 51.0
+offset_top = 26.0
+offset_right = 94.0
+offset_bottom = 45.0
+text = "Увел-ет кол-во полу-чаемого металла в 2 р."
+label_settings = SubResource("LabelSettings_q20w1")
+autowrap_mode = 3
+
+[node name="Power3" type="Label" parent="Store/LevelBar4" unique_id=2018072599]
+texture_filter = 3
+layout_mode = 0
+offset_left = 98.0
+offset_top = 25.0
+offset_right = 141.0
+offset_bottom = 44.0
+text = "+20 к стратовому кол-ву металла"
+label_settings = SubResource("LabelSettings_8d7ff")
+autowrap_mode = 3
+
+[node name="Power4" type="Label" parent="Store/LevelBar4" unique_id=772309598]
+texture_filter = 3
+layout_mode = 0
+offset_left = 145.0
+offset_top = 26.0
+offset_right = 188.0
+offset_bottom = 45.0
+text = "Ускоряет генерацию металла в 2 раза"
+label_settings = SubResource("LabelSettings_lrohy")
+autowrap_mode = 3
+
+[node name="Friend_4" type="Sprite2D" parent="Store/LevelBar4" unique_id=2037902832]
+self_modulate = Color(0.21568628, 0.21568628, 0.21568628, 1)
+texture_filter = 3
+position = Vector2(-15, 14)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_l3ow8")
+
+[node name="Upgrade4" type="Button" parent="Store/LevelBar4" unique_id=24998412]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 8028.0
+offset_bottom = 8008.0
+scale = Vector2(0.002, 0.002)
+icon = ExtResource("3_l3ow8")
+
+[node name="Price" type="Label" parent="Store/LevelBar4" unique_id=670589903]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 195.0
+offset_top = -4.0
+offset_right = 205.0
+offset_bottom = 19.0
+text = "1"
+
+[node name="LevelBar5" type="ProgressBar" parent="Store" unique_id=1203288147]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+layout_mode = 0
+offset_left = 30.0
+offset_top = 177.0
+offset_right = 222.0
+offset_bottom = 204.0
+max_value = 4.0
+show_percentage = false
+
+[node name="Friend_5" type="Sprite2D" parent="Store/LevelBar5" unique_id=1398612563]
+self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
+texture_filter = 3
+position = Vector2(-15, 14)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_l3ow8")
+
+[node name="Upgrade5" type="Button" parent="Store/LevelBar5" unique_id=2109894186]
+layout_mode = 0
+offset_left = 192.0
+offset_right = 8028.0
+offset_bottom = 8008.0
+scale = Vector2(0.002, 0.002)
+icon = ExtResource("3_l3ow8")
+
+[node name="Price" type="Label" parent="Store/LevelBar5" unique_id=794781719]
+self_modulate = Color(1, 0, 0, 1)
+layout_mode = 0
+offset_left = 195.0
+offset_top = -4.0
+offset_right = 205.0
+offset_bottom = 19.0
+text = "1"
+
+[node name="Power1" type="Label" parent="Store/LevelBar5" unique_id=1627472263]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 27.0
+offset_right = 47.0
+offset_bottom = 46.0
+text = "При попадании во врага наносит урон, равный  кол-ву металла, поделённое  на 10"
+label_settings = SubResource("LabelSettings_a8e1d")
+autowrap_mode = 3
+
+[node name="Power2" type="Label" parent="Store/LevelBar5" unique_id=1497213153]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 27.0
+offset_right = 94.0
+offset_bottom = 46.0
+text = "+0.4 к стартовой энергии"
+label_settings = SubResource("LabelSettings_ndcp4")
+autowrap_mode = 3
+
+[node name="Power3" type="Label" parent="Store/LevelBar5" unique_id=1517480624]
+layout_mode = 0
+offset_left = 99.0
+offset_top = 27.0
+offset_right = 142.0
+offset_bottom = 46.0
+text = "Не аннулирут металл при попадании, а только снимает  30 единиц"
+label_settings = SubResource("LabelSettings_a8e1d")
+autowrap_mode = 3
+
+[node name="Power4" type="Label" parent="Store/LevelBar5" unique_id=888690789]
+layout_mode = 0
+offset_left = 145.0
+offset_top = 27.0
+offset_right = 188.0
+offset_bottom = 46.0
+text = "При попадании во врага замедляет его  на 3 единицы"
+label_settings = SubResource("LabelSettings_a8e1d")
+autowrap_mode = 3
 
 [node name="Border0" type="ColorRect" parent="Store" unique_id=2069169614]
 layout_mode = 0
@@ -119,167 +855,54 @@ offset_right = 222.0
 offset_bottom = 223.0
 color = Color(0, 0, 0, 1)
 
-[node name="LevelBar1" type="ProgressBar" parent="Store" unique_id=556351581]
-layout_mode = 0
-offset_left = 30.0
-offset_right = 222.0
-offset_bottom = 27.0
-max_value = 4.0
-show_percentage = false
-
-[node name="Power1" type="Label" parent="Store/LevelBar1" unique_id=1857416067]
-texture_filter = 3
-layout_mode = 0
-offset_left = 4.0
-offset_top = 26.0
-offset_right = 47.0
-offset_bottom = 45.0
-text = "Каждый выстрел будет оттал-кивать корабль назад, что поз-волит нанести больше пуль"
-label_settings = SubResource("LabelSettings_a8e1d")
-autowrap_mode = 3
-
-[node name="Friend_1" type="Sprite2D" parent="Store/LevelBar1" unique_id=1085541142]
-self_modulate = Color(0, 0, 1, 1)
-texture_filter = 3
-position = Vector2(-15, 15)
-scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_l3ow8")
-
-[node name="LevelBar2" type="ProgressBar" parent="Store" unique_id=1375895455]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 45.0
-offset_right = 222.0
-offset_bottom = 72.0
-max_value = 4.0
-show_percentage = false
-
-[node name="Power2" type="Label" parent="Store/LevelBar2" unique_id=560762876]
-texture_filter = 3
-layout_mode = 0
-offset_left = 4.0
-offset_top = 26.0
-offset_right = 40.0
-offset_bottom = 38.0
-text = "Продлевает отравление от выстрелов в два раза"
-label_settings = SubResource("LabelSettings_l3ow8")
-autowrap_mode = 3
-
-[node name="Friend_2" type="Sprite2D" parent="Store/LevelBar2" unique_id=451692251]
+[node name="Back_to_Menu" type="Button" parent="." unique_id=151025196]
+process_mode = 3
+visible = false
 self_modulate = Color(0, 1, 0, 1)
-texture_filter = 3
-position = Vector2(-15, 14)
-scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_l3ow8")
-
-[node name="LevelBar3" type="ProgressBar" parent="Store" unique_id=2102509402]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 89.0
-offset_right = 222.0
-offset_bottom = 116.0
-max_value = 4.0
-show_percentage = false
-
-[node name="Power3" type="Label" parent="Store/LevelBar3" unique_id=850525768]
-texture_filter = 3
-layout_mode = 0
-offset_left = 4.0
-offset_top = 26.0
-offset_right = 48.0
-offset_bottom = 44.0
-text = "Незначительно повышает урон от пуль"
-label_settings = SubResource("LabelSettings_whbmk")
+offset_top = 227.0
+offset_right = 92.0
+offset_bottom = 285.0
+scale = Vector2(0.5, 0.5)
+text = "Back to menu"
 autowrap_mode = 3
 
-[node name="Friend_3" type="Sprite2D" parent="Store/LevelBar3" unique_id=1652019714]
-self_modulate = Color(1, 0, 0, 1)
-texture_filter = 3
-position = Vector2(-15, 14)
-scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_l3ow8")
+[node name="Pause" type="Label" parent="." unique_id=1756882093]
+process_mode = 3
+visible = false
+offset_left = 86.0
+offset_top = 79.0
+offset_right = 170.0
+offset_bottom = 113.0
+text = "Paused"
+label_settings = SubResource("LabelSettings_d1q6q")
 
-[node name="LevelBar4" type="ProgressBar" parent="Store" unique_id=1860893428]
+[node name="Continue" type="Button" parent="Pause" unique_id=675348440]
+process_mode = 3
+self_modulate = Color(1, 0, 1, 1)
 layout_mode = 0
-offset_left = 30.0
-offset_top = 133.0
-offset_right = 222.0
-offset_bottom = 160.0
-max_value = 4.0
-show_percentage = false
+offset_left = 91.0
+offset_top = 147.0
+offset_right = 170.0
+offset_bottom = 178.0
+text = "Continue"
 
-[node name="Power4" type="Label" parent="Store/LevelBar4" unique_id=1253163018]
-texture_filter = 3
-layout_mode = 0
-offset_left = 4.0
-offset_top = 25.0
-offset_right = 46.0
-offset_bottom = 44.0
-text = "Корабль получает в 2 раза меньше ур.(а также способен пережить роз. снаряды)"
-label_settings = SubResource("LabelSettings_a8e1d")
-autowrap_mode = 3
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=880053439]
+stream = ExtResource("8_vjwwo")
+volume_db = -5.0
+autoplay = true
+parameters/looping = true
 
-[node name="Friend_4" type="Sprite2D" parent="Store/LevelBar4" unique_id=2037902832]
-self_modulate = Color(0.21568628, 0.21568628, 0.21568628, 1)
-texture_filter = 3
-position = Vector2(-15, 14)
-scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_l3ow8")
+[node name="Buying" type="AudioStreamPlayer2D" parent="." unique_id=1649023277]
+stream = ExtResource("9_d1q6q")
+max_polyphony = 4
 
-[node name="LevelBar5" type="ProgressBar" parent="Store" unique_id=1203288147]
-layout_mode = 0
-offset_left = 30.0
-offset_top = 177.0
-offset_right = 222.0
-offset_bottom = 204.0
-max_value = 4.0
-show_percentage = false
-
-[node name="Power5" type="Label" parent="Store/LevelBar5" unique_id=1627472263]
-layout_mode = 0
-offset_left = 4.0
-offset_top = 27.0
-offset_right = 47.0
-offset_bottom = 46.0
-text = "При попадании в кого-нибудь наносит урон, равный кол-ву металла, поделённое на 10"
-label_settings = SubResource("LabelSettings_a8e1d")
-autowrap_mode = 3
-
-[node name="Friend_5" type="Sprite2D" parent="Store/LevelBar5" unique_id=1398612563]
-self_modulate = Color(18.892157, 18.892157, 18.892157, 1)
-texture_filter = 3
-position = Vector2(-15, 14)
-scale = Vector2(2, 2)
-texture = SubResource("AtlasTexture_l3ow8")
-
-[node name="Start" type="Button" parent="." unique_id=805972199]
-self_modulate = Color(1, 0, 0, 1)
-offset_left = 105.0
-offset_top = 113.0
-offset_right = 151.0
-offset_bottom = 144.0
-text = "Start"
-
-[node name="Name" type="Label" parent="." unique_id=1413981074]
-offset_left = 35.0
-offset_top = 77.0
-offset_right = 223.0
-offset_bottom = 111.0
-text = "Space engineers"
-label_settings = SubResource("LabelSettings_71itg")
-
-[node name="Go_to_Store" type="Button" parent="." unique_id=566392120]
-self_modulate = Color(0, 0, 1, 1)
-offset_left = 103.0
-offset_top = 145.0
-offset_right = 153.0
-offset_bottom = 177.0
-text = "Store"
-
-[node name="You_died" type="Label" parent="." unique_id=1113361844]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Вы умерли 0 раз(а)"
-
-[connection signal="button_down" from="Start" to="." method="_on_button_button_down"]
-[connection signal="pressed" from="Go_to_Store" to="." method="_on_go_to_store_pressed"]
+[connection signal="pressed" from="Name/Go_to_Store" to="." method="_on_go_to_store_pressed"]
+[connection signal="pressed" from="Name/Go_to_Manual" to="." method="_on_go_to_manual_pressed"]
+[connection signal="button_down" from="Name/Start" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="Store/LevelBar1/Upgrade1" to="." method="_on_upgrade_1_pressed"]
+[connection signal="pressed" from="Store/LevelBar2/Upgrade2" to="." method="_on_upgrade_2_pressed"]
+[connection signal="pressed" from="Store/LevelBar3/Upgrade3" to="." method="_on_upgrade_3_pressed"]
+[connection signal="pressed" from="Store/LevelBar4/Upgrade4" to="." method="_on_upgrade_4_pressed"]
+[connection signal="pressed" from="Store/LevelBar5/Upgrade5" to="." method="_on_upgrade_5_pressed"]
+[connection signal="pressed" from="Back_to_Menu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="Pause/Continue" to="." method="_on_continue_pressed"]
