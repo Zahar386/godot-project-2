@@ -11,7 +11,7 @@ func _physics_process(delta: float) -> void:
 		if collision:
 			var collider = collision.get_collider()
 			if collider.has_method('take_damage'):
-				collider.poison_value += 5
-			queue_free()
+				collider.poison_value += 7
+				queue_free()
 	else:
 		queue_free()

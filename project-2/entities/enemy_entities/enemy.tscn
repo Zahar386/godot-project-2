@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dpkq4v7k1yekf" path="res://entities/enemy_entities/enemy.gd" id="1_pqhw6"]
 [ext_resource type="Texture2D" uid="uid://bcii7njiyy30b" path="res://assets/Enemy_ship.png" id="2_b4nis"]
-[ext_resource type="AudioStream" uid="uid://b2d28srjw7u0a" path="res://assets/Megabit.ogg" id="3_emlwh"]
+[ext_resource type="AudioStream" uid="uid://cxyvg8q5p4iyo" path="res://assets/Attack1.ogg" id="3_m5nf2"]
 [ext_resource type="Texture2D" uid="uid://i82lno1u7g7g" path="res://assets/Rust.png" id="4_oxlqt"]
 [ext_resource type="Texture2D" uid="uid://cgacr31jq8rko" path="res://assets/Krasnaja_molnija.png" id="5_s1wym"]
 [ext_resource type="Texture2D" uid="uid://cemiuh4o3yabi" path="res://assets/heal.png" id="6_m5nf2"]
@@ -57,7 +57,7 @@ wait_time = 16.0
 autostart = true
 
 [node name="Sound_effects" type="AudioStreamPlayer2D" parent="." unique_id=524988035]
-stream = ExtResource("3_emlwh")
+stream = ExtResource("3_m5nf2")
 volume_db = -2.0
 max_polyphony = 10
 playback_type = 1
@@ -67,9 +67,9 @@ autostart = true
 
 [node name="Rust" type="Sprite2D" parent="." unique_id=219714888]
 visible = false
-position = Vector2(40, -9)
+position = Vector2(49.082863, -9)
 rotation = -1.5707964
-scale = Vector2(0.033, 0.05)
+scale = Vector2(0.033, 0.10032058)
 texture = ExtResource("4_oxlqt")
 
 [node name="Poison_value" type="Label" parent="." unique_id=10006329]

@@ -12,9 +12,9 @@ func _physics_process(delta: float) -> void:
 			var collider = collision.get_collider()
 			if collider.has_method('take_damage'):
 				if GameManager.friend_ship_level_2 >= 1:
-					collider.take_damage(1)
-				else:
 					collider.take_damage(2)
+				else:
+					collider.take_damage(1)
 				if GameManager.friend_ship_level_2 >= 2:
 					collider.poison_value += 3
 				else:

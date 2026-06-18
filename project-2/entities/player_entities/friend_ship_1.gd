@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var SPEED = 10.0
+@onready var SPEED = 5.0
 const BULLET = preload("res://entities/player_entities/bullet_3.tscn")
 @onready var health = 10
 @onready var poison_value = 0
@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 			var collider = collision.get_collider()
 			if collider.has_method('take_damage'):
 				collider.take_damage(health)
-			take_damage(health)
+				take_damage(health)
 	else:
 		queue_free()
 
@@ -32,13 +32,12 @@ func _on_timer_timeout() -> void:
 	bullet.global_position = global_position + Vector2(0, -10)
 	get_parent().add_child(bullet)
 	if GameManager.friend_ship_level_1 >= 1:
-		global_position += Vector2(0, 5)
+		global_position += Vector2(0, 3)
 	$Shoot_sound.play()
 
 func take_damage(damage):
 	health -= damage
 	GameManager.metall += round(damage/2)
-	
 	if health <= 0:
 		queue_free()
 

@@ -11,14 +11,11 @@ func _physics_process(delta: float) -> void:
 		var collision = move_and_collide(Vector2.DOWN.rotated(global_rotation)*delta*SPEED)
 		if collision:
 			var collider = collision.get_collider()
-			rotation_degrees = -rotation_degrees
+			rotation_degrees += randi_range(170,190)
 			if collider.has_method('take_damage'):
-				collider.take_damage(5)
-				if global_position.y >= 240-28:
-					queue_free()
-				elif global_position.y <= 50:
-					collider.take_damage(-5)
-					queue_free()
+				collider.take_damage(4)
+				if global_position.y <= 50:
+					collider.take_damage(-4)
 			$Give_damage.play()
 	else:
 		queue_free()

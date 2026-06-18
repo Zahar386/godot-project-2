@@ -23,6 +23,12 @@ func _physics_process(delta: float) -> void:
 		$HUD/Music.stream_paused = true
 		pl.visible = false
 		en.visible = false
+		en.health = 50
+		en.poison_value = 0
+		pl.poison_value = 0
+		en.SPEED = 14
+		en.debuff = 0
+		$Enemy/Health.max_value = 50
 		$Walls.visible = false
 		$Enemy/Timer.start(16)
 		$HUD/You_died.text = "Вы умерли "+str(pl.deaths)+" раз(а)"
@@ -67,19 +73,19 @@ func _physics_process(delta: float) -> void:
 		else:
 			$Walls/Metall_price_3.self_modulate = Color("ff0000ff")
 		
-		if 2-GameManager.energy >= 0.09:
+		if 2-GameManager.energy > 0.1:
 			$Walls/Energy_price_1.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_1.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy >= 0.14:
+		if 2-GameManager.energy > 0.15:
 			$Walls/Energy_price_2.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_2.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy >= 0.29:
+		if 2-GameManager.energy > 0.3:
 			$Walls/Energy_price_4.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_4.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy >= 0.44:
+		if 2-GameManager.energy > 0.45:
 			$Walls/Energy_price_3.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_3.self_modulate = Color("7d00ffff")

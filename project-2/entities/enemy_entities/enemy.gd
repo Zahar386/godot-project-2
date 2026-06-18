@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var SPEED = 16.0
+@onready var SPEED = 14.0
 @onready var debuff = 0
 @onready var health = 50
 @onready var level = 0
@@ -10,7 +10,7 @@ const BULLET2 = preload("res://entities/enemy_entities/enemy_bullet_2.tscn")
 const BULLET3 = preload("res://entities/enemy_entities/enemy_bullet_3.tscn")
 
 func take_damage(damage):
-	$Sound_effects.stream = load("res://assets/Megabit.ogg")
+	$Sound_effects.stream = load("res://assets/Attack1.ogg")
 	$Sound_effects.play()
 	health -= damage
 	if health <= 0.0:
@@ -108,9 +108,13 @@ func _on_timer_timeout() -> void:
 				bullet3.rotation_degrees = s
 				get_parent().add_child(bullet3)
 				await get_tree().create_timer(0.1).timeout
-		await get_tree().create_timer(1).timeout
-	$Timer.start(30-SPEED)
-	$Wait_for_shooting.max_value = 30-SPEED
+		await get_tree().create_timer(0.1).timeout
+	if SPEED < 30:
+		$Timer.start(30-SPEED)
+		$Wait_for_shooting.max_value = 30-SPEED
+	else:
+		$Timer.start(0.5)
+		$Wait_for_shooting.max_value = 0.5
 
 func _on_poison_timer_timeout() -> void:
 	if GameManager.game_situation == 1:

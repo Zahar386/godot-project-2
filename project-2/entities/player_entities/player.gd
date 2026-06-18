@@ -83,6 +83,8 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 	if GameManager.energy >= 2:
 		GameManager.energy = 1.99
+	if GameManager.metall < 0:
+		GameManager.metall = 0
 
 func _on_timer_timeout() -> void:
 	can_shoot = true
@@ -103,3 +105,4 @@ func _on_poison_timer_timeout() -> void:
 		if poison_value > 0:
 			take_damage(1)
 			poison_value -= 1.1
+			GameManager.metall -= 1

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var SPEED = 15.0
+@onready var SPEED = 7.5
 const BULLET = preload("res://entities/player_entities/bullet_1.tscn")
 @onready var health = 15
 @onready var poison_value = 0
@@ -8,6 +8,8 @@ const BULLET = preload("res://entities/player_entities/bullet_1.tscn")
 func _physics_process(delta: float) -> void:
 	if GameManager.friend_ship_level_2 >= 3:
 		$Timer.wait_time = 0.75/2
+	else:
+		$Timer.wait_time = 0.75
 	if GameManager.game_situation == 1:
 		if poison_value > 0:
 			$Health.self_modulate = Color("00ff00ff")
@@ -23,7 +25,7 @@ func _physics_process(delta: float) -> void:
 			var collider = collision.get_collider()
 			if collider.has_method('take_damage'):
 				collider.take_damage(health)
-			take_damage(health)
+				take_damage(health)
 	else:
 		queue_free()
 
