@@ -37,8 +37,10 @@ func _physics_process(delta: float) -> void:
 		$Enemy/Timer.start(16)
 		$HUD/You_died.text = "Вы умерли "+str(pl.deaths)+" раз(а)"
 		$Exit_game.visible = true
+		$Erase_data.visible = true
 	elif GameManager.game_situation == 1:
 		$Exit_game.visible = false
+		$Erase_data.visible = false
 		if Input.is_action_just_pressed("stop_game"):
 			$HUD/Pause.visible = true
 			$HUD/Back_to_Menu.visible = true
@@ -125,6 +127,7 @@ func _physics_process(delta: float) -> void:
 
 func save():
 	var save_dict = {
+		"deads": pl.deaths,
 		"money":GameManager.money,
 		"level_1":GameManager.friend_ship_level_1,
 		"level_2":GameManager.friend_ship_level_2,
@@ -148,6 +151,7 @@ func load_game():
 	var parse_result = json.parse(json_string)
 	var node_data = json.data
 	if node_data != null:
+		pl.deaths = int(node_data["deaths"])
 		GameManager.money = int(node_data["money"])
 		GameManager.friend_ship_level_1 = int(node_data["level_1"])
 		GameManager.friend_ship_level_2 = int(node_data["level_2"])
@@ -160,8 +164,8 @@ func _on_exit_game_pressed() -> void:
 	save_game()
 	get_tree().quit()
 
-
 func _on_erase_data_pressed() -> void:
+	pl.deaths = 0
 	GameManager.money = 0
 	GameManager.friend_ship_level_1 = 0
 	GameManager.friend_ship_level_2 = 0
