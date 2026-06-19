@@ -16,6 +16,8 @@ func _physics_process(delta: float) -> void:
 				GameManager.energy -= float(damage*0.01)
 				if GameManager.friend_ship_level_5 >= 1:
 					collider.take_damage(float(damage*0.1))
+				else:
+					collider.take_damage(0)
 				if GameManager.friend_ship_level_5 >= 3:
 					GameManager.metall -= 30
 				else:

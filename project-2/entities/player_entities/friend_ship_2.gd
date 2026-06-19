@@ -7,9 +7,9 @@ const BULLET = preload("res://entities/player_entities/bullet_1.tscn")
 
 func _physics_process(delta: float) -> void:
 	if GameManager.friend_ship_level_2 >= 3:
-		$Timer.wait_time = 0.75/2
+		$Timer.wait_time = 1.25/2
 	else:
-		$Timer.wait_time = 0.75
+		$Timer.wait_time = 1.25
 	if GameManager.game_situation == 1:
 		if poison_value > 0:
 			$Health.self_modulate = Color("00ff00ff")

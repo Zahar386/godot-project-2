@@ -13,7 +13,7 @@ func _physics_process(delta: float) -> void:
 			var collider = collision.get_collider()
 			rotation_degrees += randi_range(170,190)
 			if collider.has_method('take_damage'):
-				collider.take_damage(4)
+				collider.take_damage(5)
 				if global_position.y <= 50:
 					collider.take_damage(-5)
 			$Give_damage.play()

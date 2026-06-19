@@ -43,7 +43,7 @@ font_size = 5
 font_size = 6
 
 [sub_resource type="LabelSettings" id="LabelSettings_jpvy7"]
-font_size = 8
+font_size = 6
 font_color = Color(1, 0, 0, 1)
 
 [sub_resource type="FontFile" id="FontFile_l3ow8"]
@@ -359,9 +359,9 @@ autowrap_mode = 3
 layout_mode = 0
 offset_left = 23.0
 offset_top = 177.0
-offset_right = 118.0
+offset_right = 121.0
 offset_bottom = 203.0
-text = "Металл - основной ресурс для созда-ния кораблей. Его можно получить при получении урона кораблям"
+text = "Металл - основной ресурс для созда-ния кораблей. Его можно получить при получении урона кораблям и вам"
 label_settings = SubResource("LabelSettings_wwirt")
 autowrap_mode = 3
 
@@ -382,7 +382,7 @@ scale = Vector2(0.022876553, 0.022876553)
 texture = ExtResource("5_qqf8p")
 
 [node name="ZheltajaMolnija" type="Sprite2D" parent="Manual" unique_id=2112617972]
-position = Vector2(121.25, 190.75)
+position = Vector2(126.25001, 190.75)
 scale = Vector2(0.0063750017, 0.0063750017)
 texture = ExtResource("6_eclha")
 
@@ -390,7 +390,7 @@ texture = ExtResource("6_eclha")
 layout_mode = 0
 offset_left = 46.0
 offset_top = 204.0
-offset_right = 225.0
+offset_right = 256.0
 offset_bottom = 233.0
 color = Color(0.47058824, 0, 0.47058824, 1)
 
@@ -398,11 +398,11 @@ color = Color(0.47058824, 0, 0.47058824, 1)
 layout_mode = 0
 offset_left = 69.0
 offset_top = 202.0
-offset_right = 225.0
+offset_right = 256.0
 offset_bottom = 225.0
-text = "Перемещение корабля на стрелки вправо и влево.
-Создание кораблей на клавиши цифр от \"1\" до \"5\""
+text = "Перемещение корабля на стрелки вправо и влево. Созда-ние кораблей на клавиши цифр от \"1\" до \"5\". Пауза на \"Esc\""
 label_settings = SubResource("LabelSettings_xqee1")
+autowrap_mode = 3
 
 [node name="SpaceShip" type="Sprite2D" parent="Manual" unique_id=1726293596]
 texture_filter = 3
@@ -412,11 +412,11 @@ texture = ExtResource("6_vjwwo")
 
 [node name="Describe_10" type="Label" parent="Manual" unique_id=1370931778]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 221.0
-offset_right = 225.0
-offset_bottom = 244.0
-text = "Остороржно! В этой игре нет сохранений!"
+offset_left = 56.0
+offset_top = 224.0
+offset_right = 266.0
+offset_bottom = 233.0
+text = "Осторожно! В этой игре много мелких неупомянутых деталей!"
 label_settings = SubResource("LabelSettings_jpvy7")
 autowrap_mode = 3
 

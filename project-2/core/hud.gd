@@ -263,7 +263,6 @@ func _on_upgrade_4_pressed() -> void:
 		$Store/LevelBar4/Price.visible = false
 		$Buying.play()
 
-
 func _on_upgrade_5_pressed() -> void:
 	if GameManager.money >= 1 and GameManager.friend_ship_level_5 == 0:
 		GameManager.money -= 1

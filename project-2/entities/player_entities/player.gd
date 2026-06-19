@@ -81,8 +81,8 @@ func _physics_process(delta: float) -> void:
 		$Health.value = health
 		
 		move_and_slide()
-	if GameManager.energy >= 2:
-		GameManager.energy = 1.99
+	if GameManager.energy > 2:
+		GameManager.energy = 2
 	if GameManager.metall < 0:
 		GameManager.metall = 0
 

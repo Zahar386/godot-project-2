@@ -3,6 +3,10 @@ extends Node2D
 @onready var pl = $Player
 @onready var en = $Enemy
 
+func _ready() -> void:
+	add_to_group("Persist")
+	load_game()
+
 func _physics_process(delta: float) -> void:
 	if GameManager.game_situation == 0:
 		pl.health = 100
@@ -32,8 +36,9 @@ func _physics_process(delta: float) -> void:
 		$Walls.visible = false
 		$Enemy/Timer.start(16)
 		$HUD/You_died.text = "Вы умерли "+str(pl.deaths)+" раз(а)"
+		$Exit_game.visible = true
 	elif GameManager.game_situation == 1:
-		$Cash/High_score.text = "High score " + str(GameManager.high_score+1) + " level"
+		$Exit_game.visible = false
 		if Input.is_action_just_pressed("stop_game"):
 			$HUD/Pause.visible = true
 			$HUD/Back_to_Menu.visible = true
@@ -116,3 +121,52 @@ func _physics_process(delta: float) -> void:
 	else:
 		$Background.region_rect.position.y = 0
 	$Cash/Money.text = str(GameManager.money)
+	$Cash/High_score.text = "High score " + str(GameManager.high_score+1) + " level"
+
+func save():
+	var save_dict = {
+		"money":GameManager.money,
+		"level_1":GameManager.friend_ship_level_1,
+		"level_2":GameManager.friend_ship_level_2,
+		"level_3":GameManager.friend_ship_level_3,
+		"level_4":GameManager.friend_ship_level_4,
+		"level_5":GameManager.friend_ship_level_5,
+		"high_score":GameManager.high_score}
+	return save_dict
+
+func save_game():
+	var save_file = FileAccess.open("res://savegame.save", FileAccess.WRITE)
+	var save_nodes = get_tree().get_nodes_in_group("Persist")
+	var node_data = self.call("save")
+	var json_string = JSON.stringify(node_data)
+	save_file.store_line(json_string)
+
+func load_game():
+	var save_file = FileAccess.open("res://savegame.save", FileAccess.READ)
+	var json_string = save_file.get_line()
+	var json = JSON.new()
+	var parse_result = json.parse(json_string)
+	var node_data = json.data
+	if node_data != null:
+		GameManager.money = int(node_data["money"])
+		GameManager.friend_ship_level_1 = int(node_data["level_1"])
+		GameManager.friend_ship_level_2 = int(node_data["level_2"])
+		GameManager.friend_ship_level_3 = int(node_data["level_3"])
+		GameManager.friend_ship_level_4 = int(node_data["level_4"])
+		GameManager.friend_ship_level_5 = int(node_data["level_5"])
+		GameManager.high_score = int(node_data["high_score"])
+
+func _on_exit_game_pressed() -> void:
+	save_game()
+	get_tree().quit()
+
+
+func _on_erase_data_pressed() -> void:
+	GameManager.money = 0
+	GameManager.friend_ship_level_1 = 0
+	GameManager.friend_ship_level_2 = 0
+	GameManager.friend_ship_level_3 = 0
+	GameManager.friend_ship_level_4 = 0
+	GameManager.friend_ship_level_5 = 0
+	GameManager.high_score = 0
+	save_game()
