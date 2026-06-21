@@ -73,3 +73,4 @@ autostart = true
 stream = ExtResource("4_45l5b")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Poison_timer" to="." method="_on_poison_timer_timeout"]

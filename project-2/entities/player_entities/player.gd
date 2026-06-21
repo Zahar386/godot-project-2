@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
-		if can_shoot == true and GameManager.energy < 2:
+		if can_shoot == true:
 			if Input.is_action_just_pressed("create_ship_1") and GameManager.metall >= 10 and 2-GameManager.energy >= 0.09:
 				GameManager.metall -= 10
 				var ship1 = FRIENDSHIP1.instantiate()

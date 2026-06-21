@@ -44,5 +44,5 @@ func take_damage(damage):
 
 func _on_poison_timer_timeout() -> void:
 	if poison_value > 0:
-		take_damage(1)
 		poison_value -= 1
+		take_damage(1)

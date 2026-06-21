@@ -9,6 +9,12 @@ const BULLET1 = preload("res://entities/enemy_entities/enemy_bullet_1.tscn")
 const BULLET2 = preload("res://entities/enemy_entities/enemy_bullet_2.tscn")
 const BULLET3 = preload("res://entities/enemy_entities/enemy_bullet_3.tscn")
 
+func _ready() -> void:
+	if randi_range(0,1) == 0:
+		global_position.x = -34
+	else:
+		global_position.x = 290
+
 func take_damage(damage):
 	$Sound_effects.stream = load("res://assets/Attack1.ogg")
 	$Sound_effects.play()
@@ -20,10 +26,11 @@ func take_damage(damage):
 		else:
 			global_position.x = 290
 		health = 50+(level*5)
-		$Sprite2D.self_modulate.g8 -= level*2
-		$Sprite2D.self_modulate.b8 -= level*2
+		$Sprite2D.self_modulate.g8 -= 2
+		$Sprite2D.self_modulate.b8 -= 2
 		SPEED += level
 		debuff -= level
+		debuff = round(debuff*10)/10
 		if debuff < 0:
 			debuff = 0
 		$Health.max_value = health

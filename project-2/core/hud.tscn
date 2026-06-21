@@ -889,7 +889,7 @@ text = "Continue"
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=880053439]
 stream = ExtResource("8_vjwwo")
-volume_db = -5.0
+volume_db = -10.0
 autoplay = true
 parameters/looping = true
 

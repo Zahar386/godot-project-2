@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		else:
 			GameManager.metall = 50
 		if GameManager.friend_ship_level_5 >= 2:
-			GameManager.energy = 1.4
+			GameManager.energy = 0.6
 			$Player/Timer.start(3*0.6)
 		else:
 			GameManager.energy = 1
@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 		$Enemy/Health.max_value = 50
 		$Walls.visible = false
 		$Enemy/Timer.start(16)
+		$Enemy/Wait_for_shooting.max_value = 16
 		$HUD/You_died.text = "Вы умерли "+str(pl.deaths)+" раз(а)"
 		$Exit_game.visible = true
 		$Erase_data.visible = true
@@ -80,19 +81,19 @@ func _physics_process(delta: float) -> void:
 		else:
 			$Walls/Metall_price_3.self_modulate = Color("ff0000ff")
 		
-		if 2-GameManager.energy > 0.1:
+		if 2-GameManager.energy >= 0.1:
 			$Walls/Energy_price_1.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_1.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy > 0.15:
+		if 2-GameManager.energy >= 0.15:
 			$Walls/Energy_price_2.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_2.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy > 0.3:
+		if 2-GameManager.energy >= 0.3:
 			$Walls/Energy_price_4.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_4.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy > 0.45:
+		if 2-GameManager.energy >= 0.45:
 			$Walls/Energy_price_3.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_3.self_modulate = Color("7d00ffff")
@@ -127,7 +128,7 @@ func _physics_process(delta: float) -> void:
 
 func save():
 	var save_dict = {
-		"deads": pl.deaths,
+		"deaths": pl.deaths,
 		"money":GameManager.money,
 		"level_1":GameManager.friend_ship_level_1,
 		"level_2":GameManager.friend_ship_level_2,
