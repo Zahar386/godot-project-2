@@ -29,7 +29,7 @@ scale = Vector2(0.098461516, 0.098461516)
 texture = ExtResource("2_b4nis")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1581689609]
-polygon = PackedVector2Array(26, 14, 12, 19, -12, 19, -26, 14, -26, -1, -16, -19, 16, -19, 26, -1)
+polygon = PackedVector2Array(26, 14, 12, 19, -12, 19, -26, 14, -26, -1, -16, -10, -16, -19, 16, -19, 16, -10, 26, -1)
 
 [node name="Health" type="ProgressBar" parent="." unique_id=1279504183]
 self_modulate = Color(18.892157, 0, 0, 1)
@@ -38,7 +38,8 @@ offset_top = -19.0
 offset_right = -27.0
 offset_bottom = 19.0
 max_value = 50.0
-value = 50.0
+step = 0.001
+value = 0.2
 fill_mode = 3
 show_percentage = false
 

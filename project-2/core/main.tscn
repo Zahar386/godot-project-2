@@ -211,7 +211,7 @@ scale = Vector2(0.8, 0.8)
 text = "0.15"
 label_settings = SubResource("LabelSettings_rayt5")
 
-[node name="Energy_price_3" type="Label" parent="Walls" unique_id=2084457015 groups=["Persist"]]
+[node name="Energy_price_3" type="Label" parent="Walls" unique_id=2084457015]
 self_modulate = Color(0.49019608, 0, 1, 1)
 texture_filter = 4
 offset_left = 248.0
@@ -272,14 +272,14 @@ position = Vector2(128, 240)
 
 [node name="HUD" parent="." unique_id=1514296125 instance=ExtResource("10_xhu5d")]
 
-[node name="Exit_game" type="Button" parent="." unique_id=1370737356]
+[node name="Save_game" type="Button" parent="." unique_id=1370737356]
 self_modulate = Color(1, 0, 1, 1)
-offset_left = 42.5
-offset_top = 210.0
-offset_right = 211.5
-offset_bottom = 270.0
-scale = Vector2(0.5, 0.5)
-text = "Exit game and save data"
+offset_left = 44.000004
+offset_top = 211.00002
+offset_right = 136.22223
+offset_bottom = 242.00002
+scale = Vector2(0.9, 0.9)
+text = "Save game"
 autowrap_mode = 3
 
 [node name="Erase_data" type="Button" parent="." unique_id=1420600812]
@@ -290,5 +290,5 @@ offset_right = 219.0
 offset_bottom = 241.0
 text = "Erase data"
 
-[connection signal="pressed" from="Exit_game" to="." method="_on_exit_game_pressed"]
+[connection signal="pressed" from="Save_game" to="." method="_on_exit_game_pressed"]
 [connection signal="pressed" from="Erase_data" to="." method="_on_erase_data_pressed"]

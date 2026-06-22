@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			
 		if can_shoot == true:
-			if Input.is_action_just_pressed("create_ship_1") and GameManager.metall >= 10 and 2-GameManager.energy >= 0.09:
+			if Input.is_action_just_pressed("create_ship_1") and GameManager.metall >= 10 and 2-GameManager.energy > 0.09:
 				GameManager.metall -= 10
 				var ship1 = FRIENDSHIP1.instantiate()
 				ship1.global_position = global_position + Vector2(0, -25)
@@ -40,7 +40,7 @@ func _physics_process(delta: float) -> void:
 				$Timer.start(3 * GameManager.energy)
 				$Wait_for_creating.max_value = $Timer.wait_time
 				SPEED -= 1
-			if Input.is_action_just_pressed("create_ship_2") and GameManager.metall >= 20 and 2-GameManager.energy >= 0.14:
+			if Input.is_action_just_pressed("create_ship_2") and GameManager.metall >= 20 and 2-GameManager.energy > 0.14:
 				GameManager.metall -= 20
 				var ship2 = FRIENDSHIP2.instantiate()
 				ship2.global_position = global_position + Vector2(0, -25)
@@ -50,7 +50,7 @@ func _physics_process(delta: float) -> void:
 				$Wait_for_creating.value = 0
 				$Timer.start(3 * GameManager.energy)
 				$Wait_for_creating.max_value = $Timer.wait_time
-			if Input.is_action_just_pressed("create_ship_3") and GameManager.metall >= 40 and 2-GameManager.energy >= 0.29:
+			if Input.is_action_just_pressed("create_ship_3") and GameManager.metall >= 40 and 2-GameManager.energy > 0.29:
 				GameManager.metall -= 40
 				var ship3 = FRIENDSHIP3.instantiate()
 				ship3.global_position = global_position + Vector2(0, -25)
@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 				$Wait_for_creating.value = 0
 				$Timer.start(3 * GameManager.energy)
 				$Wait_for_creating.max_value = $Timer.wait_time
-			if Input.is_action_just_pressed("create_ship_4") and 2-GameManager.energy >= 0.44:
+			if Input.is_action_just_pressed("create_ship_4") and 2-GameManager.energy > 0.44:
 				GameManager.energy += 0.45
 				var ship4 = FRIENDSHIP4.instantiate()
 				ship4.global_position = global_position + Vector2(0, -25)

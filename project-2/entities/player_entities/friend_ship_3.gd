@@ -9,6 +9,7 @@ const BULLET = preload("res://entities/player_entities/bullet_2.tscn")
 func _ready() -> void:
 	if GameManager.friend_ship_level_3 >= 2:
 		health = 10
+		$Health.max_value = 10
 
 func _physics_process(delta: float) -> void:
 	if GameManager.game_situation == 1:

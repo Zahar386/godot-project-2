@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var SPEED = 5.0
+@onready var SPEED = 6.0
 const BULLET = preload("res://entities/player_entities/bullet_3.tscn")
 @onready var health = 10
 @onready var poison_value = 0
@@ -8,7 +8,7 @@ const BULLET = preload("res://entities/player_entities/bullet_3.tscn")
 func _physics_process(delta: float) -> void:
 	if GameManager.game_situation == 1:
 		if GameManager.friend_ship_level_1 >= 3:
-			SPEED = 8
+			SPEED = 3
 		if poison_value > 0:
 			$Health.self_modulate = Color("00ff00ff")
 		else:
@@ -32,7 +32,7 @@ func _on_timer_timeout() -> void:
 	bullet.global_position = global_position + Vector2(0, -10)
 	get_parent().add_child(bullet)
 	if GameManager.friend_ship_level_1 >= 1:
-		global_position += Vector2(0, 3)
+		global_position += Vector2(0, 2.5)
 	$Shoot_sound.play()
 
 func take_damage(damage):

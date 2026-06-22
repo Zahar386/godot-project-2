@@ -37,10 +37,10 @@ func _physics_process(delta: float) -> void:
 		$Enemy/Timer.start(16)
 		$Enemy/Wait_for_shooting.max_value = 16
 		$HUD/You_died.text = "Вы умерли "+str(pl.deaths)+" раз(а)"
-		$Exit_game.visible = true
+		$Save_game.visible = true
 		$Erase_data.visible = true
 	elif GameManager.game_situation == 1:
-		$Exit_game.visible = false
+		$Save_game.visible = false
 		$Erase_data.visible = false
 		if Input.is_action_just_pressed("stop_game"):
 			$HUD/Pause.visible = true
@@ -81,19 +81,19 @@ func _physics_process(delta: float) -> void:
 		else:
 			$Walls/Metall_price_3.self_modulate = Color("ff0000ff")
 		
-		if 2-GameManager.energy >= 0.1:
+		if 2-GameManager.energy > 0.09:
 			$Walls/Energy_price_1.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_1.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy >= 0.15:
+		if 2-GameManager.energy > 0.14:
 			$Walls/Energy_price_2.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_2.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy >= 0.3:
+		if 2-GameManager.energy > 0.29:
 			$Walls/Energy_price_4.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_4.self_modulate = Color("7d00ffff")
-		if 2-GameManager.energy >= 0.45:
+		if 2-GameManager.energy > 0.44:
 			$Walls/Energy_price_3.self_modulate = Color("ffff00ff")
 		else:
 			$Walls/Energy_price_3.self_modulate = Color("7d00ffff")
@@ -163,7 +163,6 @@ func load_game():
 
 func _on_exit_game_pressed() -> void:
 	save_game()
-	get_tree().quit()
 
 func _on_erase_data_pressed() -> void:
 	pl.deaths = 0

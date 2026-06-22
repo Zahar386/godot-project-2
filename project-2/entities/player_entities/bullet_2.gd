@@ -12,13 +12,14 @@ func _physics_process(delta: float) -> void:
 			var collider = collision.get_collider()
 			if collider.has_method('take_damage'):
 				if global_position.y <= 50:
-					if collider.SPEED > 0.4:
-						if GameManager.friend_ship_level_3 >= 2:
-							collider.SPEED -= 0.2
-							collider.debuff += 0.2
-						else:
-							collider.SPEED -= 0.1
-							collider.debuff += 0.1
+					if GameManager.friend_ship_level_3 >= 2:
+						collider.SPEED -= 0.2
+						collider.debuff += 0.2
+					else:
+						collider.SPEED -= 0.1
+						collider.debuff += 0.1
+					if collider.debuff > 9.9 and collider.debuff < 10:
+						collider.debuff = 10
 				if GameManager.friend_ship_level_3 >= 1:
 					collider.take_damage(1)
 				else:

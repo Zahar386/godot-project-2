@@ -23,9 +23,8 @@ func _physics_process(delta: float) -> void:
 				else:
 					GameManager.metall = 0
 				if GameManager.friend_ship_level_5 == 4:
-					if SPEED > 3:
-						collider.SPEED -= 3
-						collider.debuff += 3
+					collider.SPEED -= 3
+					collider.debuff += 3
 			queue_free()
 	else:
 		queue_free()

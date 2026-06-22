@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@onready var SPEED = 5
+@onready var SPEED = 6
 @onready var health = 10
 @onready var direction = Vector2.RIGHT
 @onready var poison_value = 0

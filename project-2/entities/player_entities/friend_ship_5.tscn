@@ -29,7 +29,7 @@ animations = [{
 size = Vector2(8, 14)
 
 [node name="Friend_Ship_5" type="CharacterBody2D" unique_id=1234138077]
-collision_layer = 4
+collision_layer = 0
 collision_mask = 4
 script = ExtResource("1_jqass")
 

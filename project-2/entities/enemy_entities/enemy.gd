@@ -65,9 +65,9 @@ func _physics_process(delta: float) -> void:
 			$Energy_debuff.visible = false
 			$Debuff_value.visible = false
 		
-		if SPEED < 5:
-			SPEED = 5
-			debuff = 11
+		if SPEED < 0.4:
+			SPEED = 0.4
+			debuff = 14-SPEED+level
 
 func _on_timer_timeout() -> void:
 	$Timer.stop()

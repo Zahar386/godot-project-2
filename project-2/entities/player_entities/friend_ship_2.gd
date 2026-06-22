@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 func _on_timer_timeout() -> void:
 	var bullet = BULLET.instantiate()
 	bullet.global_position = global_position + Vector2(0, -10)
-	global_position += Vector2(0, -1)
+	global_position += Vector2(0, -0.5)
 	get_parent().add_child(bullet)
 	$Shoot_sound.play()
 
